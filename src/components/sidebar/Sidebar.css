@@ -1,0 +1,251 @@
+/* ================= Sidebar Layout (Desktop) ================= */
+
+.hrms-dashboard-sidebar {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 250px;
+  height: calc(100vh - 64px);
+  background: linear-gradient(180deg, #6779a3 0%, #0ea5a4 100%);
+  padding-top: 16px;
+  overflow: hidden; /* ✅ prevent double scrollbar */
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+/* ================= Ant Design Menu Base ================= */
+
+.ant-menu-dark {
+  background: transparent !important;
+}
+
+/* ================= Scrollable Menu ================= */
+
+.hrms-dashboard-sidebar .ant-menu {
+  height: 100%;
+  overflow-y: auto;        /* ✅ vertical scroll */
+  overflow-x: hidden;
+  padding-bottom: 24px;
+  scrollbar-width: thin;   /* Firefox */
+  scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+}
+/* =====================================================
+   MAKE LEAVE MANAGEMENT COLOR SAME AS ATTENDANCE
+===================================================== */
+
+/* Leave Management HOVER (light like Attendance) */
+.hrms-dashboard-sidebar
+  .ant-menu-submenu-title:hover {
+  background: linear-gradient(
+    90deg,
+    #06b6d4,
+    #0ea5a4
+  ) !important;
+
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.45);
+  /* transform: translateX(4px); */
+}
+
+/* Leave Management ACTIVE / OPEN (light like Attendance) */
+.hrms-dashboard-sidebar
+  .ant-menu-submenu-open
+  > .ant-menu-submenu-title {
+  background: linear-gradient(
+    90deg,
+    #06b6d4,
+    #0ea5a4
+  ) !important;
+
+  border-radius: 8px;
+  box-shadow: 0 0 14px rgba(6, 182, 212, 0.6);
+  font-weight: 600;
+}
+
+/* Remove dark background completely */
+.ant-menu-dark .ant-menu-submenu-title {
+  background: transparent !important;
+}
+/* =====================================================
+   FORCE WHITE TEXT FOR LEAVE MANAGEMENT (HOVER + ACTIVE)
+===================================================== */
+
+/* Leave Management text + icon on hover */
+.hrms-dashboard-sidebar
+  .ant-menu-submenu-title:hover,
+.hrms-dashboard-sidebar
+  .ant-menu-submenu-title:hover span,
+.hrms-dashboard-sidebar
+  .ant-menu-submenu-title:hover .anticon {
+  color: #ffffff !important;
+}
+
+/* Leave Management text + icon when open / active */
+.hrms-dashboard-sidebar
+  .ant-menu-submenu-open
+  > .ant-menu-submenu-title,
+.hrms-dashboard-sidebar
+  .ant-menu-submenu-open
+  > .ant-menu-submenu-title span,
+.hrms-dashboard-sidebar
+  .ant-menu-submenu-open
+  > .ant-menu-submenu-title .anticon {
+  color: #ffffff !important;
+}
+
+/* ================= Custom Scrollbar (WebKit) ================= */
+
+.hrms-dashboard-sidebar .ant-menu::-webkit-scrollbar {
+  width: 5px;
+}
+
+.hrms-dashboard-sidebar .ant-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.hrms-dashboard-sidebar .ant-menu::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+}
+
+.hrms-dashboard-sidebar .ant-menu::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+/* ================= Menu Transitions ================= */
+
+.ant-menu-item,
+.ant-menu-submenu-title {
+  transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.ant-menu-dark .ant-menu-item:hover,
+.ant-menu-dark .ant-menu-submenu-title:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  /* padding-left: 28px; */
+}
+
+/* Active submenu (Leave Management) */
+.ant-menu-dark
+  .ant-menu-submenu-open
+  > .ant-menu-submenu-title {
+  background-color: rgba(59, 53, 53, 0.25) !important;
+  font-weight: 600;
+}
+
+/* Selected item */
+.ant-menu-dark .ant-menu-item-selected {
+  background-color: rgba(255, 255, 255, 0.35) !important;
+  font-weight: 600;
+}
+
+/* Icon color */
+.ant-menu-dark .ant-menu-item-selected svg,
+.ant-menu-dark .ant-menu-submenu-open svg {
+  color: #ffffff !important;
+}
+
+/* Submenu indentation */
+.ant-menu-submenu .ant-menu-item {
+  padding-left: 48px !important;
+}
+.hrms-dashboard-sidebar .ant-menu-submenu-title:hover {
+  background: linear-gradient(90deg, #06b6d4, #0ea5a4) !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.45);
+}
+
+/* ================= Tablet View (Tab View) ================= */
+/* iPads, small laptops */
+
+@media (max-width: 1024px) {
+  .hrms-dashboard-sidebar {
+    width: 200px;
+  }
+
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+    font-size: 14px;
+    padding: 0 16px !important;
+  }
+
+  .ant-menu-submenu .ant-menu-item {
+    padding-left: 40px !important;
+  }
+
+  .ant-menu-item:hover,
+  .ant-menu-submenu-title:hover {
+    padding-left: 24px !important;
+  }
+}
+
+/* ================= Mobile View ================= */
+
+@media (max-width: 768px) {
+  .hrms-dashboard-sidebar {
+    left: -250px;
+    width: 220px;
+  }
+
+  .hrms-dashboard-sidebar.active {
+    left: 0;
+  }
+
+  .hrms-dashboard-sidebar .ant-menu {
+    height: calc(100vh - 64px);
+  }
+
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+    font-size: 13px;
+    padding: 0 14px !important;
+    min-height: 44px;
+    line-height: 44px;
+  }
+
+  .ant-menu-submenu .ant-menu-item {
+    padding-left: 36px !important;
+  }
+}
+
+/* ================= Extra Mobile UX ================= */
+
+@media (max-width: 480px) {
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+    font-size: 12px;
+  }
+}
+/* =====================================================
+   MAKE LEAVE MANAGEMENT & SALARY LOOK LIKE NORMAL ITEMS
+===================================================== */
+
+/* Default state – same as other menu items */
+.ant-menu-dark .ant-menu-submenu-title {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+/* Hover – same hover as normal items */
+.ant-menu-dark .ant-menu-submenu-title:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
+/* Active / open – SAME as selected menu item */
+.ant-menu-dark .ant-menu-submenu-open > .ant-menu-submenu-title {
+  background-color: rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+/* Icon color consistency */
+.ant-menu-dark .ant-menu-submenu-title .anticon {
+  color: #ffffff !important;
+}
+
+/* Remove AntD dark overlay */
+.ant-menu-dark .ant-menu-submenu {
+  background: transparent !important;
+}

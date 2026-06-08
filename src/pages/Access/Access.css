@@ -1,0 +1,121 @@
+/* ================= PAGE ================= */
+
+.access-page {
+  padding: 24px;
+  margin-left: 250px;
+  margin-top: 80px;
+  background: #f6f8fb;
+  min-height: calc(100vh - 80px);
+}
+
+.access-card {
+  border-radius: 8px;
+}
+
+.access-footer {
+  margin-top: 16px;
+  text-align: right;
+}
+
+/* ================= COLUMN WIDTH ================= */
+
+.col-modules {
+  width: 250px;
+  min-width: 250px;
+}
+
+.col-screens {
+  width: 250px;
+  min-width: 250px;
+}
+
+/* ================= SELECT SIZE ================= */
+
+.access-select {
+  width: 100%;
+}
+
+.access-select .ant-select-selector {
+  min-height: 48px !important;
+  padding: 6px 8px !important;
+}
+
+.access-select .ant-select-selection-overflow {
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+/* Allow multi-line tags */
+.access-select .ant-select-selection-item {
+  white-space: normal;
+  height: auto;
+  line-height: 1.4;
+}
+
+/* ================= DROPDOWN WIDTH ================= */
+
+.select-modules .ant-select-dropdown,
+.select-screens .ant-select-dropdown {
+  min-width: 420px !important;
+}
+
+/* ================= TABLE ================= */
+
+.ant-table {
+  table-layout: fixed;
+}
+
+.ant-table-cell {
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1024px) {
+  .access-page {
+    margin-left: 200px;
+    padding: 16px;
+  }
+
+  .col-modules {
+    width: 280px;
+    min-width: 280px;
+  }
+
+  .col-screens {
+    width: 320px;
+    min-width: 320px;
+  }
+
+  .access-footer {
+    text-align: center;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .access-page {
+    margin-left: 0;
+    margin-top: 56px;
+    padding: 12px;
+  }
+
+  .col-modules,
+  .col-screens {
+    min-width: 260px;
+  }
+
+  .access-select {
+    min-width: 240px;
+  }
+
+  .access-footer {
+    text-align: center;
+  }
+
+  .access-footer button {
+    width: 100%;
+  }
+}

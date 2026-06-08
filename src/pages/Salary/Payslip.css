@@ -1,0 +1,334 @@
+.payslip-page {
+  padding: 20px;
+  background: #f6f8fb;
+  margin-left: 240px;
+  /* margin-top: 70px; */
+}
+
+/* TOP BAR */
+.payslip-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  
+}
+
+.tab {
+  padding: 6px 14px;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.tab.active {
+  background: #1890ff;
+  color: #fff;
+  border-color: #1890ff;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.month-select {
+  width: 140px;
+}
+
+/* MAIN CONTENT */
+.payslip-content {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+/* default desktop widths */
+.payslip-content .box {
+  flex: 1;
+}
+
+.payslip-content .employee-box {
+  flex: 1.2;
+}
+
+
+/* COMMON BOX */
+.box {
+  border-radius: 6px;
+}
+
+.box-title {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.box-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  background: #e6f7ff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+.row.total {
+  font-weight: 600;
+  background: #fafafa;
+}
+
+/* EMPLOYEE BOX */
+.employee-box {
+  background: #fff9db;
+}
+
+.emp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.hide-link {
+  color: #1890ff;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.emp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+}
+
+.emp-grid label {
+  font-size: 12px;
+  color: #666;
+}
+
+.emp-grid p {
+  margin: 2px 0 8px;
+  font-weight: 500;
+}
+
+/* NET PAY */
+.netpay-card {
+  margin-top: 16px;
+  text-align: right;
+}
+
+.netpay-amount {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .payslip-page {
+    margin-left: 0;     /* sidebar overlays in mobile */
+    padding: 12px;
+  }
+
+  .payslip-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+ .actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .actions button,
+  .actions .month-select {
+    width: 100%;        
+  }
+
+
+  .payslip-content {
+    flex-direction: column;
+  }
+
+  .payslip-content .box,
+  .payslip-content .employee-box {
+    width: 100%;
+  }
+
+  .netpay-card {
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .tab {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .month-select {
+    width: 120px;
+  }
+
+  .netpay-amount {
+    font-size: 18px;
+  }
+}
+.payslip-period {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.hide-in-pdf {
+  display: none !important;
+}
+
+
+
+/* ================= PDF MODE ================= */
+.pdf-mode {
+  width: 900px !important;
+  max-width: 900px !important;
+}
+
+.pdf-mode .payslip-content {
+  flex-direction: row !important;
+}
+
+.pdf-mode .actions,
+.pdf-mode .payslip-topbar {
+  display: none !important;
+}
+/* ===== ALIGN AMOUNTS IN MOBILE PDF ===== */
+.pdf-mobile .row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+/* Label column */
+.pdf-mobile .row span:first-child {
+  flex: 1;
+  text-align: left;
+}
+
+/* Amount column — force same line for all */
+.pdf-mobile .row span:last-child {
+  width: 110px;          /* fixed width for alignment */
+  text-align: right;
+  white-space: nowrap;
+}
+
+
+
+/* Overall PDF layout */
+.pdf-mode .payslip-content {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 16px;
+}
+
+/* Employee details should span full width on top */
+.pdf-mode .employee-details {
+  grid-column: 1 / -1;
+  order: -1;
+  margin-bottom: 12px;
+}
+
+
+/* ================= PDF EMPLOYEE DETAILS (2 COLUMNS, 5 ROWS EACH) ================= */
+
+.pdf-mode .employee-details {
+  grid-column: 1 / -1;        /* full width on top */
+  order: -1;
+  margin-bottom: 14px;
+}
+
+/* Two columns only in PDF */
+.pdf-mode .employee-details .emp-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  column-gap: 40px;
+  row-gap: 6px;
+}
+
+/* Each row: label left, value right */
+.pdf-mode .employee-details .emp-grid > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed #ddd;
+  padding: 4px 0;
+}
+
+/* Label */
+.pdf-mode .employee-details label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Value */
+.pdf-mode .employee-details p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: right;
+  white-space: nowrap;
+}
+/* ================= PDF NET PAY HIGHLIGHT ================= */
+
+.pdf-mode .netpay-card {
+  grid-column: 1 / -1;              /* full width */
+  background: #e6f7ff !important;   /* light blue highlight */
+  /* border: 1px solid #91d5ff; */
+  border-radius: 6px;
+  padding: 14px 16px;
+  text-align: right;
+}
+
+/* Net Pay heading */
+.pdf-mode .netpay-card h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #003a8c;
+}
+
+/* Net Pay amount */
+.pdf-mode .netpay-card .netpay-amount {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0050b3;
+}
+
+/* Amount in words */
+.pdf-mode .netpay-card .netpay-words {
+  font-size: 13px;
+  font-style: italic;
+  color: #333;
+  margin-top: 4px;
+}

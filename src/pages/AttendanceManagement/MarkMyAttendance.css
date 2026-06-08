@@ -1,0 +1,83 @@
+
+/* ================= Page Layout ================= */
+.mark-attendance-container {
+  padding: 24px;
+
+  /* ✅ position below navbar & beside sidebar */
+  margin-left: 120px;   /* sidebar width */
+  margin-top: 10px;     /* navbar height */
+
+  /* ✅ let page grow naturally */
+  min-height: calc(100vh - 64px);
+
+  background-color: #f0f0f0;
+}
+
+
+.mark-attendance-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.mark-attendance-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.mark-attendance-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.mark-attendance-input .ant-input {
+  height: 42px;
+  border-radius: 8px;
+}
+
+.mark-attendance-input .ant-input[disabled] {
+  background-color: #f9fafb;
+}
+
+.mark-attendance-actions {
+  margin-top: 20px;
+}
+
+.mark-login-btn,
+.mark-logout-btn {
+  height: 42px;
+  padding: 0 24px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.mark-login-btn:not([disabled]) {
+  background: linear-gradient(135deg, #1677ff, #4096ff);
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .mark-login-btn,
+  .mark-logout-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 1024px) {
+  .mark-attendance-container {
+    margin-left: 200px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mark-attendance-container {
+    margin-left: 0;
+    margin-top: 55px;
+    padding: 12px;
+    height: auto;
+  }
+}

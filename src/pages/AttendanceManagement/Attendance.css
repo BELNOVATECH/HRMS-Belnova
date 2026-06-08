@@ -1,0 +1,72 @@
+
+
+.attendance-content {
+  padding: 25px;
+    margin-left: 120px;   /* sidebar width */
+  margin-top: 20px;     /* navbar height */
+
+  background: #f4f6fb;
+  min-height: calc(100vh - 64px);
+}
+
+
+.attendance-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.att-title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* DATE PICKERS */
+.date-range-box {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.date-input {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  width: 150px;
+}
+
+/* BUTTON SECTION */
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.export-btn {
+  background: #1677ff;
+  color: white;
+  border: none;
+}
+
+/* MODAL */
+.modal-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.modal-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.modal-actions {
+  margin-top: 20px;
+  text-align: right;
+}

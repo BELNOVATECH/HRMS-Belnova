@@ -1,0 +1,50 @@
+/* === MAIN LAYOUT WRAPPER === */
+.hrms-main-layout {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: #f0f2f5;
+}
+
+/* === FIXED SIDEBAR === */
+.hrms-dashboard-sidebar {
+  width: 240px;
+  position: fixed;
+  left: 0;
+  top: 70px;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+/* === FIX NAVBAR === */
+.hrms-navbar {
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+}
+
+.hrms-content {
+  margin-top: 70px;
+
+  /* ✅ FIXED WIDTH LOGIC */
+  width: calc(100vw - 240px);
+  margin-left: 240px;
+
+  padding: 24px;
+  box-sizing: border-box;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background: #ffffff;
+  border-radius: 6px;
+}
+
+
+
+

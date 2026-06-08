@@ -1,0 +1,208 @@
+/* ========== LAYOUT CONTAINERS ========== */
+
+/* Used on analytics + all dashboard pages */
+.hrms-analytics-container,
+.hrms-dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background: #f9fafb;
+}
+
+/* Main content area */
+.hrms-analytics-main,
+.hrms-dashboard-main {
+  flex: 1;
+  margin-left: 220px; /* sidebar width in desktop */
+  margin-top: 70px;   /* navbar height */
+  padding: 30px 40px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 70px);
+  box-sizing: border-box;
+}
+
+.subtitle {
+  margin-top: -10px;
+  color: #6b7280;
+}
+
+/* ========== KPI / SUMMARY CARDS ========== */
+
+/* Analytics cards */
+.analytics-kpi-section {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin: 24px 0;
+}
+
+/* Reports summary cards */
+.reports-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin: 24px 0;
+}
+
+/* Base style for KPI / summary cards */
+.analytics-kpi-card,
+.reports-card {
+  padding: 18px 15px;
+  text-align: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0ea5a4, #03203b);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Force all content inside to white */
+.analytics-kpi-card,
+.analytics-kpi-card *,
+.analytics-kpi-card .ant-card-body,
+.analytics-kpi-card .ant-card-body *,
+.reports-card,
+.reports-card *,
+.reports-card .ant-card-body,
+.reports-card .ant-card-body * {
+  color: #ffffff !important;
+}
+
+.analytics-kpi-card:hover,
+.reports-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+/* Titles */
+.analytics-kpi-card h3,
+.reports-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* Numbers */
+.analytics-kpi-card p,
+.reports-card p {
+  margin-top: 10px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Icons */
+.analytics-kpi-card .card-icon,
+.reports-card .card-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+/* ========== TABLE / CHART CARDS ========== */
+
+.chart-card,
+.reports-table-card {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  box-sizing: border-box;
+}
+
+.chart-title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* ========== RESPONSIVE BREAKPOINTS ========== */
+
+/* 📱 MOBILE – up to 576px */
+@media (max-width: 576px) {
+  .hrms-analytics-container,
+  .hrms-dashboard-container {
+    flex-direction: column;
+  }
+
+  .hrms-analytics-main,
+  .hrms-dashboard-main {
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  .analytics-kpi-section,
+  .reports-summary {
+    grid-template-columns: 1fr; /* 1 card per row */
+    gap: 16px;
+  }
+
+  .analytics-kpi-card,
+  .reports-card {
+    padding: 14px;
+  }
+
+  .analytics-kpi-card p,
+  .reports-card p {
+    font-size: 1.5rem;
+  }
+}
+
+/* 📟 TABLET – 577px to 1024px */
+@media (min-width: 577px) and (max-width: 1024px) {
+  .hrms-analytics-main,
+  .hrms-dashboard-main {
+    margin-left: 0;
+    padding: 22px 28px;
+  }
+
+  .analytics-kpi-section,
+  .reports-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 per row */
+    gap: 20px;
+  }
+
+  .analytics-kpi-card p,
+  .reports-card p {
+    font-size: 1.7rem;
+  }
+}
+
+/* 🖥 DESKTOP – 1025px and above */
+@media (min-width: 1025px) {
+  .hrms-analytics-main,
+  .hrms-dashboard-main {
+    margin-left: 220px;
+    padding: 30px 40px;
+  }
+
+  .analytics-kpi-section,
+  .reports-summary {
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 per row */
+    gap: 24px;
+  }
+
+  .analytics-kpi-card p,
+  .reports-card p {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 577px) and (max-width: 1024px) {
+  .chart-card {
+    padding: 16px;
+  }
+
+  .chart-title {
+    font-size: 16px;
+  }
+}
+@media (max-width: 576px) {
+  .chart-card {
+    padding: 12px;
+  }
+
+  .chart-title {
+    font-size: 14px;
+  }
+}

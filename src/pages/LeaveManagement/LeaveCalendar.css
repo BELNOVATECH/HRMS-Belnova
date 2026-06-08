@@ -1,0 +1,176 @@
+/* ================= PAGE WRAPPER ================= */
+.leave-calendar-page {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 20px;
+  margin-left: 240px;
+  margin-top: 50px;
+  box-sizing: border-box;
+}
+
+/* ================= CALENDAR CARD ================= */
+.calendar-card {
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 16px;
+  padding-bottom: 25px;
+  position: relative;
+  background: #ffffff;
+}
+
+.calendar-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* ================= CALENDAR CELL BADGES ================= */
+.calendar-badges {
+  display: flex;
+  flex-direction: column;
+}
+
+/* replaces: style={{ marginRight: 4 }} */
+.leave-badge {
+  margin-right: 4px;
+}
+
+/* replaces: style={{ marginTop: 2 }} */
+.holiday-item {
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+}
+
+/* replaces: style={{ marginRight: 4 }} */
+.holiday-dot {
+  margin-right: 4px;
+}
+
+/* replaces: fontSize: 10, color */
+.holiday-text {
+  font-size: 10px;
+  color: #722ed1;
+}
+
+/* ================= LEGEND ================= */
+.calendar-legend {
+  position: absolute;
+  bottom: 4px;
+  left: 16px;
+  display: flex;
+  gap: 36px;
+  align-items: center;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+}
+
+.calendar-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.calendar-legend-badge {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* Legend colors */
+.calendar-legend-badge.blue {
+  background: #1890ff;
+}
+
+.calendar-legend-badge.yellow {
+  background: #fae314;
+}
+
+.calendar-legend-badge.purple {
+  background: #722ed1;
+}
+
+.calendar-legend-badge.grey {
+  background: #8a888d;
+}
+
+.calendar-legend-badge.orange {
+  background: #f8c76c;
+}
+
+/* ================= DETAILS CARD ================= */
+.details-card {
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 16px;
+  background: #ffffff;
+  margin-top: 10px;
+}
+
+.details-title {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+  .leave-calendar-page {
+    margin-left: 200px;
+    margin-top: 70px;
+    padding: 15px;
+  }
+
+  .calendar-card,
+  .details-card {
+    padding: 12px;
+  }
+
+  .calendar-legend {
+    gap: 20px;
+    font-size: 11px;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .leave-calendar-page {
+    margin-left: 0;
+    margin-top: 60px;
+    padding: 10px;
+  }
+
+  .calendar-card,
+  .details-card {
+    padding: 10px;
+  }
+
+  .calendar-legend {
+    bottom: 8px;
+    left: 8px;
+    gap: 12px;
+    font-size: 10px;
+  }
+
+  .details-card .ant-table-wrapper {
+    overflow-x: auto;
+  }
+}
+
+/* ================= EXTRA SMALL ================= */
+@media (max-width: 480px) {
+  .calendar-title,
+  .details-title {
+    font-size: 14px;
+  }
+
+  .calendar-legend {
+    font-size: 9px;
+    gap: 8px;
+    padding: 4px 6px;
+  }
+}

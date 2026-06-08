@@ -1,0 +1,143 @@
+/* ================================
+   Leave Balance Page Wrapper
+================================ */
+.leave-balance-wrapper {
+  padding: 20px;
+  margin-left: 250px;
+  margin-top: 80px;
+  box-sizing: border-box;
+  min-height: calc(100vh - 80px);
+  background: #f5f7fa;
+}
+
+/* ================================
+   Header Section
+================================ */
+.leave-balance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.leave-balance-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* ================================
+   Header Actions
+================================ */
+.leave-balance-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.leave-balance-actions .ant-select,
+.leave-balance-actions .ant-btn {
+  min-width: 120px;
+}
+
+/* ================================
+   Leave Cards Grid
+================================ */
+.leave-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+/* ================================
+   Individual Leave Card
+================================ */
+.leave-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.leave-card-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.leave-card-footer {
+  font-size: 13px;
+  color: #555;
+  margin-top: 6px;
+  text-align: center;
+}
+
+/* ================================
+   Progress Bar
+================================ */
+.leave-card .ant-progress {
+  margin-top: 8px;
+}
+
+/* ================================
+   Tablet View
+================================ */
+@media (max-width: 1024px) {
+  .leave-balance-wrapper {
+    margin-left: 200px;
+    margin-top: 70px;
+    padding: 16px;
+  }
+
+  .leave-balance-header h2 {
+    font-size: 18px;
+  }
+}
+
+/* ================================
+   Mobile View
+================================ */
+@media (max-width: 768px) {
+  .leave-balance-wrapper {
+    margin-left: 0;
+    margin-top: 60px;
+    padding: 12px;
+  }
+
+  .leave-balance-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .leave-balance-actions {
+    width: 100%;
+  }
+
+  .leave-balance-actions .ant-select,
+  .leave-balance-actions .ant-btn {
+    width: 100%;
+  }
+
+  .leave-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================
+   Extra Small Mobile
+================================ */
+@media (max-width: 480px) {
+  .leave-balance-header h2 {
+    font-size: 16px;
+  }
+
+  .leave-card-header {
+    font-size: 14px;
+  }
+
+  .leave-card-footer {
+    font-size: 12px;
+  }
+}

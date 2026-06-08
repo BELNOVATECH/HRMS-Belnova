@@ -1,0 +1,85 @@
+.leave-page-container {
+  width: 100%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+.ant-tabs-content-holder {
+  background: #ffffff;
+  padding: 20px 30px;
+  border-radius: 8px;
+}
+
+
+.leave-page-container .ant-tabs-tab {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 25px !important;
+}
+
+.leave-page-container .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #1677ff !important;
+}
+
+/* Prevent content from sticking to edges */
+.leave-page-container .ant-tabs-content-holder {
+  margin-top: 10px;
+}
+
+/* RESPONSIVE FIXES */
+
+/* TABLET VIEW */
+@media (max-width: 1024px) {
+  .leave-page-container {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+  }
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+  .leave-page-container {
+    margin-left: 0;            /* Sidebar collapsed */
+    margin-top: 65px;          /* Adjust for mobile navbar */
+    width: 100%;
+    padding: 20px;
+  }
+
+  .leave-page-container .ant-tabs-tab {
+    padding: 8px 14px !important;
+    font-size: 14px;
+  }
+}
+/* PAGE LAYOUT */
+.leave-page-container {
+  margin-left: 250px;         /* sidebar space */
+  margin-top: 80px;           /* navbar space */
+  width: calc(100% - 250px);
+  min-height: calc(100vh - 80px);
+  background: #ffffff;
+  padding: 0;                 /* REMOVE padding here */
+  box-sizing: border-box;
+}
+
+/* HEADER TAB BAR */
+.leave-tabs-header {
+  background: #f7f9fb;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 10px 0;
+}
+
+/* CONTENT AREA */
+.leave-content-body {
+  padding: 30px 50px;        /* real content spacing */
+}
+/* FIX DatePicker being cut in LeaveApply screen */
+.leave-page-container,
+.ant-tabs-content-holder {
+  overflow: visible !important;
+}
+
+.ant-picker-dropdown {
+  z-index: 999999 !important;
+}

@@ -1,0 +1,344 @@
+/* =================== MAIN LAYOUT =================== */
+.hrms-dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f9fafb;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hrms-dashboard-main {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* =================== HEADER =================== */
+/* =================== HEADER =================== */
+
+.performance-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;   /* 🔥 important */
+  margin-bottom: 20px;
+}
+
+/* Header container */
+.performance-header {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title row: icon + text block */
+.performance-title {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Trophy */
+.title-icon {
+  color: #facc15;
+  font-size: 22px;
+  margin-right: 12px;   /* clear gap */
+  margin-top: 3px;      /* slight vertical shift */
+}
+
+/* Text block */
+.title-text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main heading */
+.performance-title h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Subtitle */
+.performance-subtitle {
+  margin-top: 4px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+
+
+.add-review-btn {
+  height: 40px;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* =================== KPI CARDS =================== */
+.performance-stats {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.stat-card {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card.top {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.stat-card.average {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+}
+
+.stat-card.pending {
+  background: linear-gradient(135deg, #facc15, #eab308);
+  color: #1f2937 !important;
+}
+
+.stat-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* =================== TABLE =================== */
+.performance-table-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 10px;
+  padding: 16px;            /* Increased padding for better spacing */
+  width: 100% !important;   /* Full width */
+  max-width: 100% !important;
+}
+
+.ant-table {
+  min-width: 100px !important;   /* ⭐ Increased Table Width */
+}
+
+.ant-table-thead > tr > th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+  color: #334155;
+}
+
+.ant-table-tbody > tr > td {
+  font-size: 15px;
+  color: #475569;
+}
+
+.employee-avatar {
+  background-color: #3b82f6 !important;
+}
+
+.employee-dept {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 1024px) {
+  .performance-stats {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .stat-card {
+    min-width: 180px;
+  }
+
+  .hrms-dashboard-main {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .performance-stats {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .stat-card {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .stat-card h3 {
+    font-size: 14px;
+  }
+
+  .stat-card p {
+    font-size: 18px;
+  }
+
+  .stat-icon {
+    font-size: 24px;
+  }
+
+
+
+  .add-review-btn {
+    width: 100%;
+    height: 42px;
+    font-size: 15px;
+  }
+
+  .performance-title h2 {
+    font-size: 20px;
+  }
+
+  .performance-header p {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .performance-table-card {
+    overflow-x: auto;
+    padding: 12px;
+  }
+
+  .ant-table {
+    min-width: 700px !important;   /* Wider on tablets */
+  }
+
+  .ant-table-thead > tr > th {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .ant-table-tbody > tr > td {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
+
+/* =================== EXTRA SMALL MOBILE (≤480px) =================== */
+@media (max-width: 480px) {
+  .hrms-dashboard-main {
+    padding: 12px;
+  }
+
+
+  .add-review-btn {
+    width: 100%;
+    height: 44px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+
+  .performance-stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .stat-icon {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+
+  .stat-card h3 {
+    font-size: 14px;
+  }
+
+  .stat-card p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .performance-table-card {
+    padding: 10px;
+    overflow-x: auto;
+  }
+
+  .ant-table {
+    min-width: 600px !important;   /* Wider on small screens */
+  }
+
+  .ant-table-thead > tr > th {
+    font-size: 11px;
+    padding: 6px;
+  }
+
+  .ant-table-tbody > tr > td {
+    font-size: 11px;
+    padding: 6px;
+  }
+
+  .employee-avatar {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* Top Performers – same style as Employee Directory */
+
+.top-performers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 20px;
+}
+
+.top-performer-card {
+  background: #e6e1df;
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tp-avatar {
+  margin-bottom: 15px;
+}
+
+.tp-info {
+  width: 100%;
+  text-align: left;
+}
+
+.tp-info p {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+.tp-rating {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f59e0b;
+}
+
+.trophy-icon {
+  font-size: 22px;
+  margin-top: 2px;        /* ⬆️ move slightly up/down */
+  margin-right: 10px;     /* ✅ gap between trophy & text */
+}

@@ -1,0 +1,468 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #eef3f9;
+  font-family: Arial, sans-serif;
+}
+
+.attendance-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.attendance-main {
+  margin-left: 240px;
+  margin-top: 70px;
+  padding: 25px;
+  width: calc(100% - 240px);
+  background: #f9fbff;
+}
+
+/* HEADER */
+.attendance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.assign-header-controls {
+  display: flex;
+  gap: 15px;
+}
+
+/* BUTTONS */
+.add-btn {
+  height: 42px !important;
+  background: #1a73ff !important;
+  color: #fff !important;
+  font-weight: bold;
+  border-radius: 8px !important;
+}
+
+.assign-task-header {
+  height: 42px !important;
+  border-radius: 8px !important;
+  font-weight: 600;
+  border: 2px solid #1a73ff !important;
+}
+
+/* ASSIGN BLOCK */
+.task-card {
+  margin-top: 10px;
+  border-radius: 14px;
+}
+
+.assign-task-block {
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: white;
+}
+
+.assign-input {
+  height: 42px !important;
+  border-radius: 8px !important;
+}
+
+.assign-textarea {
+  border-radius: 8px !important;
+}
+
+.assign-btn {
+  height: 45px !important;
+  border-radius: 8px !important;
+  background: #1a73ff !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+/* TABLE */
+.table-card {
+  margin-top: 20px;
+  border-radius: 14px;
+}
+
+.table-scroll-wrapper {
+  overflow-x: auto;
+}
+/* 🔥 FORCE table cells to behave */
+.ant-table {
+  table-layout: fixed;
+}
+
+/* 🔥 Critical: stop vertical overlap */
+.ant-table-tbody > tr > td {
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* 🔥 Description cell */
+.task-desc-cell {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  line-height: 1.4;
+}
+
+.emp-photo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.emp-photo.placeholder {
+  background: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* EMPLOYEE NAME + DROPDOWN */
+.emp-name-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.emp-name {
+  font-weight: 600;
+  color: #1677ff;
+}
+
+.drop-info-btn {
+  border: 1px solid #d0d7e2;
+  border-radius: 6px;
+  padding: 0 6px;
+  height: 22px;
+  font-size: 11px;
+  background: #f5f7fb;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drop-info-btn.rotated {
+  transform: rotate(180deg);
+}
+
+/* floating dropdown card */
+.emp-info-dropdown {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+  padding: 12px 14px;
+  z-index: 20;
+  min-width: 230px;
+}
+
+.emp-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.emp-info-row:last-child {
+  margin-bottom: 0;
+}
+
+.emp-info-row strong {
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+/* ADD EMP MODAL */
+.add-modal-grid {
+  display: flex;
+  gap: 20px;
+}
+
+.photo-preview {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  margin-top: 12px;
+  border: 1px solid #ddd;
+  object-fit: cover;
+}
+
+.phone-row {
+  display: flex;
+  gap: 12px;
+}
+
+.phone-code-item {
+  width: 120px;
+}
+
+.phone-number-item {
+  flex: 1;
+}
+
+/* EDIT MODAL */
+.edit-modal-grid {
+  display: flex;
+  gap: 20px;
+}
+
+.edit-left {
+  width: 180px;
+}
+
+.edit-right {
+  flex: 1;
+}
+
+.edit-photo-wrapper-modal {
+  margin-bottom: 10px;
+}
+
+.edit-photo-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.edit-photo-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px dashed #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 13px;
+}
+
+/* EDIT BUTTON */
+.edit-btn {
+  background: #1677ff !important;
+  color: white !important;
+}
+
+/* (extra classes, kept for future use) */
+.employee-select-dropdown {
+  width: 160px;
+  font-weight: 600;
+  border-radius: 6px !important;
+}
+
+.employee-dropdown-menu {
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+}
+
+.emp-info-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+  font-size: 13px;
+}
+/* ===========================
+   FORCE HORIZONTAL SCROLL
+   =========================== */
+
+.table-outer-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-scroll-wrapper {
+  min-width: 1800px;   /* MUST be larger than screen */
+}
+
+/* Ant Design internal */
+.ant-table-wrapper {
+  width: 100%;
+}
+
+.ant-table {
+  min-width: 1800px;   /* 🔥 THIS FORCES SCROLL */
+}
+
+.ant-table-container {
+  overflow-x: auto !important;
+}
+
+.ant-table-body {
+  overflow-x: auto !important;
+}
+
+/* ===========================
+   RESPONSIVE STYLES
+   =========================== */
+
+/* -------- Tablet (≤ 1024px) -------- */
+@media (max-width: 1024px) {
+  .attendance-main {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+    margin-top: 70px;
+  }
+
+  .attendance-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .assign-header-controls {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .assign-header-controls .add-btn,
+  .assign-header-controls .assign-task-header {
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .table-card {
+    margin-top: 16px;
+  }
+
+  .add-modal-grid,
+  .edit-modal-grid {
+    flex-direction: column;
+  }
+
+  .edit-left,
+  .edit-right {
+    width: 100%;
+  }
+
+  .phone-row {
+    flex-direction: row;
+  }
+}
+
+/* -------- Mobile (≤ 768px) -------- */
+@media (max-width: 768px) {
+  .attendance-main {
+    padding: 15px;
+    margin-top: 60px;
+  }
+
+  .main-title {
+    font-size: 18px;
+  }
+
+  .assign-header-controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .assign-header-controls .add-btn,
+  .assign-header-controls .assign-task-header {
+    width: 100% !important;
+  }
+
+  .task-card {
+    margin-top: 12px;
+  }
+
+  .assign-task-block {
+    padding: 14px;
+  }
+
+  .add-modal-grid,
+  .edit-modal-grid {
+    flex-direction: column;
+  }
+
+  .phone-row {
+    flex-direction: column;
+  }
+
+  .phone-code-item,
+  .phone-number-item {
+    width: 100%;
+  }
+
+  .emp-info-dropdown {
+    left: 0;
+    right: auto;
+    max-width: 260px;
+  }
+
+  .table-card {
+    margin-top: 14px;
+  }
+
+  .table-scroll-wrapper {
+    overflow-x: auto;
+  }
+}
+
+/* -------- Extra small mobile (≤ 480px) -------- */
+@media (max-width: 480px) {
+  .attendance-main {
+    padding: 10px;
+  }
+
+  .main-title {
+    font-size: 16px;
+  }
+
+  .assign-header-controls {
+    gap: 8px;
+  }
+
+  .emp-info-dropdown {
+    min-width: 200px;
+    font-size: 11px;
+  }
+
+  .emp-info-row {
+    font-size: 11px;
+  }
+
+  .edit-photo-large,
+  .edit-photo-placeholder {
+    width: 100px;
+    height: 100px;
+  }
+}
+.emp-drop-icon {
+  font-size: 10px;
+  color: #3d4f6e;
+  cursor: pointer;
+  margin-left: 6px;
+  transition: transform 0.2s ease-in-out;
+  display: inline-block;
+}
+
+.emp-drop-icon.rotated {
+  transform: rotate(180deg);
+}
+

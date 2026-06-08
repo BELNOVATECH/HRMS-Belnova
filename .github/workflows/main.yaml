@@ -1,0 +1,64 @@
+name: Auto Deploy – HRMS Portal (PROD)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy HRMS Frontend (PROD)
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          clean: true
+
+      # 🔐 FIX: Git safe.directory issue on self-hosted runner
+      - name: Mark repo as safe for git
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Verify branch and commit
+        run: |
+          git branch --show-current
+          git log -1 --oneline
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Create .env.production
+        run: |
+          echo "VITE_ENV=prod" > .env.production
+          echo "VITE_APP_NAME=HRMS" >> .env.production
+          echo "VITE_API_BASE_URL=/api" >> .env.production
+          echo "VITE_BUILD_TIME=${{ github.run_number }}" >> .env.production
+          echo "VITE_COMMIT_SHA=${{ github.sha }}" >> .env.production
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build HRMS frontend (PROD)
+        run: |
+          npm run build:prod
+          ls -lt dist/assets | head -5
+
+      - name: Deploy to HRMS PROD Nginx folder
+        run: |
+          sudo rm -rf /var/www/hrms
+          sudo mkdir -p /var/www/hrms
+          sudo cp -r dist/* /var/www/hrms/
+          sudo chown -R www-data:www-data /var/www/hrms
+          sudo chmod -R 755 /var/www/hrms
+
+      - name: Reload Nginx
+        run: |
+          sudo nginx -t
+          sudo systemctl reload nginx

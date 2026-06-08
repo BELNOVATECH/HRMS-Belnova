@@ -1,0 +1,136 @@
+.poi-container {
+  padding: 16px;
+  background: #f5f7fa;
+  margin-left: 240px;
+  margin-top: 60px;
+}
+
+.poi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 16px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.poi-subtext {
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.status-open {
+  color: green;
+  font-weight: 600;
+}
+
+.poi-banner {
+  background: #eef6ff;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.poi-info {
+  background: #e6f7ec;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.poi-content {
+  display: flex;
+  gap: 16px;
+}
+
+/* Left menu */
+.poi-left {
+  width: 240px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.poi-left h4 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.poi-left ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.poi-left li {
+  padding: 8px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.poi-left li.active {
+  background: #1890ff;
+  color: #fff;
+}
+
+/* Right content */
+.poi-right {
+  flex: 1;
+  background: #fff;
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.poi-right table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.poi-right th,
+.poi-right td {
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+}
+
+.poi-right th {
+  background: #fafafa;
+  text-align: left;
+}
+
+.section-row td {
+  background: #f0f2f5;
+  font-weight: 600;
+}
+
+.center {
+  text-align: center;
+}
+
+.red {
+  color: red;
+}
+
+.link {
+  color: #1890ff;
+  cursor: pointer;
+  text-align: center;
+}
+
+.poi-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.submit-btn {
+  background: #1890ff;
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}

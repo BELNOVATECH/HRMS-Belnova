@@ -1,0 +1,122 @@
+/* --------------------------------- */
+/* Body and overall page background */
+body {
+  background-color: #f0f0f0; /* light grey for entire page */
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Main container adjusts for sidebar and navbar */
+.holiday-calendar-container {
+  padding: 24px;
+  margin-left: 250px; /* width of your sidebar */
+  margin-top: 80px;   /* height of your navbar */
+  overflow-y: auto;
+  height: calc(100vh - 80px); /* full viewport minus navbar height */
+  background-color: #f0f0f0; /* grey background for container */
+}
+
+/* Title */
+.holiday-calendar-title {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* Year selector */
+.holiday-calendar-year-selector {
+  margin-bottom: 20px;
+  margin-left: 650px; /* desktop position */
+  margin-top: -40px;
+}
+
+/* Grid layout: 4 cards per row */
+.holiday-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  gap: 16px;
+}
+
+/* Holiday card with grey border and white background */
+.holiday-calendar-card {
+  width: 100%;
+  border: 1px solid #ccc; /* grey border */
+  border-radius: 6px;
+  padding: 12px;
+  background-color: #fff; /* card background remains white for readability */
+}
+
+/* No holidays text */
+.no-holidays {
+  color: #888;
+}
+
+/* Holiday item */
+.holiday-item {
+  margin-bottom: 8px;
+}
+
+.holiday-date {
+  margin-right: 4px;
+}
+
+.holiday-name {
+  color: #333;
+}
+
+/* --------------------------------- */
+/* Responsive Styles */
+/* --------------------------------- */
+
+/* Tablet view (768px - 1024px) */
+@media (max-width: 1024px) {
+  .holiday-calendar-container {
+    margin-left: 200px; /* smaller sidebar */
+    padding: 16px;
+  }
+
+  .holiday-calendar-year-selector {
+    margin-left: auto; /* move to right flexibly */
+  }
+
+  .holiday-calendar-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    gap: 12px;
+  }
+
+  .holiday-calendar-card {
+    padding: 10px;
+  }
+}
+
+/* Mobile view (max-width: 768px) */
+@media (max-width: 768px) {
+  .holiday-calendar-container {
+    margin-left: 0; /* full width on mobile */
+    padding: 12px;
+    height: auto; /* let it expand */
+    margin-top: 55px;
+  }
+
+  /* Move year selector to left */
+  .holiday-calendar-year-selector {
+    margin-left: 220px; /* move fully to left on mobile */
+    margin-bottom: 16px; /* spacing above grid */
+    margin-top: -38px;
+  }
+
+  /* Grid: 1 card per row */
+  .holiday-calendar-grid {
+    grid-template-columns: 1fr; 
+    gap: 10px;
+  }
+
+  /* Holiday card padding */
+  .holiday-calendar-card {
+    padding: 8px;
+  }
+
+  /* Title size */
+  .holiday-calendar-title {
+    font-size: 1.2rem;
+  }
+}

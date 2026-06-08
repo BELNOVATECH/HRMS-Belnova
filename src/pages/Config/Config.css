@@ -1,0 +1,118 @@
+.config-wrapper {
+  padding: 20px;
+  margin-left: 250px;
+}
+
+/* FIRST ROW FLEX */
+.config-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+/* Two cards same row */
+.config-card {
+  width: 50%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+.config-card-roles {
+  width: 50%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+/* Full width 3rd card */
+.full-width {
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* List styling */
+.list-content {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+.list-row {
+  padding: 10px 14px;
+  background: #fff;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+}
+.delete-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media (max-width: 1024px) {
+  .config-wrapper {
+    margin-left: 200px !important; /* smooth with semi collapsed sidebar */
+    transition: all 0.3s ease;
+  }
+
+  .config-row {
+    flex-wrap: wrap;
+  }
+
+  .config-card {
+    width: 48%;
+  }
+}
+
+/* 📱 Mobile View FIX */
+@media (max-width: 768px) {
+  .config-wrapper {
+    margin-left: 0 !important; /* full width clean mobile */
+    padding: 15px;
+  }
+
+  .config-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .config-card,
+  .full-width {
+    width: 100%;
+    margin-top: 45px;
+  }
+
+  .list-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .delete-btn {
+    align-self: flex-end;
+  }
+.config-card-roles {
+  width: 100%;
+  margin-top: 45px;
+}
+}
+/* Remove ALL space between tabs and list */
+.config-card .ant-tabs {
+  margin-bottom: 0 !important;
+}
+
+.config-card .list-content {
+  margin-top: -25px !important;
+}
+/* 🔧 Remove space after tabs in Roles card */
+.config-card-roles .ant-tabs {
+  margin-bottom: 0 !important;
+}
+
+.config-card-roles .list-content {
+  margin-top: -35px !important;
+}

@@ -1,0 +1,275 @@
+/* -----------------------------------------------------
+   GLOBAL FORM BACKGROUND (#fafafa)
+----------------------------------------------------- */
+
+.ant-modal-content {
+  border-radius: 10px;
+  background: #fafafa !important;   /* FULL FORM BACKGROUND */
+}
+
+.ant-modal-body {
+  background: #fafafa !important;
+  padding: 20px;
+}
+
+.employee-form-wrapper {
+  background: #fafafa !important;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+
+/* ---------------- MODAL POSITION ---------------- */
+
+.ant-modal {
+  top: 20px;
+}
+
+/* Avatar Upload Section */
+.avatar-upload {
+  text-align: center;
+  background: #fafafa !important;
+}
+
+.avatar-upload .ant-avatar {
+  background-color: #87d068;
+  margin-bottom: 8px;
+}
+
+/* Upload & Remove Buttons */
+.avatar-upload .ant-btn {
+  display: block;
+  margin: 5px auto;
+}
+
+/* ---------------- FORM HEADINGS ---------------- */
+h3 {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ---------------- FAMILY MEMBER BOX ---------------- */
+.family-member-box {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background: #fafafa !important;
+}
+
+.family-member-box .ant-btn-danger {
+  text-align: right;
+  float: right;
+  margin-top: 10px;
+}
+
+/* -----------------------------------------------------
+   RESPONSIVE DESIGN
+----------------------------------------------------- */
+
+/* Desktop */
+@media (min-width: 992px) {
+  .ant-row {
+    margin-bottom: 10px;
+  }
+  .ant-col > .ant-form-item {
+    margin-bottom: 10px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+  .ant-row {
+    margin-bottom: 8px;
+  }
+  .ant-col {
+    margin-bottom: 8px;
+  }
+  h3 {
+    font-size: 15px;
+  }
+}
+
+/* Mobile (≤ 767px) */
+@media (max-width: 767px) {
+  .ant-modal {
+    width: 95% !important;
+    padding: 10px;
+  }
+
+  .ant-row {
+    display: flex;
+    flex-direction: column !important;
+    margin-bottom: 8px;
+  }
+
+  .ant-col {
+    width: 100% !important;
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  .avatar-upload .ant-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .avatar-upload .ant-btn {
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
+  .family-member-box {
+    padding: 8px;
+  }
+}
+
+/* Small Mobile ≤ 480px */
+@media (max-width: 480px) {
+  .family-member-box {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .family-member-box .ant-input,
+  .family-member-box .ant-select-selector,
+  .family-member-box .ant-input-number,
+  .family-member-box textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .family-member-box .ant-select {
+    width: 100% !important;
+  }
+
+  .family-member-box .ant-picker {
+    width: 100% !important;
+  }
+
+  .family-member-box .ant-row {
+    margin: 0 !important;
+  }
+
+  h3 {
+    font-size: 13px;
+    margin-top: 15px;
+  }
+
+  .avatar-upload .ant-avatar {
+    width: 65px;
+    height: 65px;
+  }
+
+  .avatar-upload .ant-btn {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .ant-col {
+    margin-bottom: 8px;
+  }
+
+  .family-member-box .ant-btn-danger {
+    font-size: 12px;
+  }
+}
+
+/* Ultra Small Mobile ≤ 320px */
+@media (max-width: 320px) {
+  .ant-modal {
+    width: 99% !important;
+    padding: 3px;
+  }
+
+  .ant-modal-content {
+    border-radius: 6px;
+    padding: 8px !important;
+    background: #fafafa !important;
+  }
+
+  h3 {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+
+  .avatar-upload .ant-avatar {
+    width: 55px;
+    height: 55px;
+  }
+
+  .avatar-upload .ant-btn {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .family-member-box {
+    padding: 6px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .family-member-box .ant-input,
+  .family-member-box .ant-select-selector,
+  .family-member-box .ant-picker,
+  .family-member-box textarea,
+  .family-member-box .ant-input-number {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 12px !important;
+  }
+
+  .family-member-box .ant-select {
+    width: 100% !important;
+  }
+
+  .family-member-box .ant-col {
+    margin-bottom: 6px;
+    padding: 0 !important;
+  }
+
+  .family-member-box .ant-btn-danger {
+    font-size: 11px !important;
+    padding: 3px 6px !important;
+  }
+
+  .ant-row {
+    margin-bottom: 4px !important;
+    flex-direction: column !important;
+  }
+
+  .ant-col {
+    width: 100% !important;
+    margin-bottom: 6px !important;
+  }
+
+  .ant-form-item-label > label {
+    font-size: 12px;
+  }
+
+  .ant-input,
+  .ant-select-selector,
+  .ant-picker {
+    font-size: 12px !important;
+    height: 32px !important;
+  }
+
+  textarea {
+    font-size: 12px !important;
+  }
+
+  .ant-modal-footer button,
+  button {
+    width: 100%;
+    font-size: 12px;
+    padding: 8px;
+  }
+}

@@ -1,0 +1,13 @@
+.create-task-page {
+  padding: 24px;
+  margin-left: 240px; 
+  min-height: calc(100vh - 64px); 
+  background-color: #f5f7fa;
+
+  margin-top: 50px;
+}
+
+.create-task-card {
+  max-width: 1000px;
+}
+

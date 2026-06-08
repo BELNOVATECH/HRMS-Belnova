@@ -1,0 +1,459 @@
+/* ---------------------------- */
+/* HEADER FIX - ALWAYS SPACED   */
+/* ---------------------------- */
+.employees-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+
+.employees-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+
+/* ---------------------------- */
+/* DESKTOP – ROW LAYOUT         */
+/* ---------------------------- */
+.employee-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+.employee-card {
+  width: calc(33.33% - 20px);
+  min-width: 260px;
+  text-align: left;           /* Main fix for consistent alignment */
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  background: rgb(216, 212, 212);
+  cursor: pointer;            /* ensures pointer */
+}
+
+
+.employee-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+  background: #e0e0e0;        /* subtle highlight on hover */
+}
+
+
+/* Profile avatar at top center */
+.employee-avatar {
+  display: block;
+  margin: 0 auto 12px auto;
+  transition: transform 0.3s ease;
+}
+
+
+.employee-card:hover .employee-avatar {
+  transform: scale(1.05);
+}
+
+
+.employee-name,
+.employee-id,
+.employee-status {
+  font-size: 14px;
+  margin: 6px 0;
+  padding: 0;
+  line-height: 1.3;
+}
+
+
+.employee-name {
+  font-weight: 600;
+}
+
+
+.employee-status {
+  font-weight: 500;
+}
+
+
+/* Badge */
+.employee-badge {
+  margin-bottom: 12px;
+}
+
+
+/* Actions */
+.employee-card-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+
+/* Arrow button */
+.employee-card-arrow {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #1890ff, #40a9ff);
+  color: white;
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.employee-card-arrow:hover {
+  transform: scale(1.2);
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+.gridview{
+  /* margin-left: 10px; */
+  background:#1677FF;
+  color:white
+}
+ 
+
+
+/* ---------------------------- */
+/* TABLET VIEW (768px–1024px)   */
+/* ---------------------------- */
+@media (max-width: 1024px) {
+  .employees-header h1 {
+    font-size: 22px;
+  }
+
+
+  .employee-card {
+    width: calc(50% - 20px);
+  }
+  
+}
+
+
+/* ---------------------------- */
+/* MOBILE VIEW (<768px)         */
+/* ---------------------------- */
+@media (max-width: 768px) {
+  .employees-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+
+  .employees-header h1 {
+    font-size: 20px;
+  }
+
+
+  .employee-card-grid {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+
+  .employee-card {
+    width: 100%;
+    padding: 25px;
+    border-radius: 25px;
+  }
+   .employee-avatar {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+
+  .employee-name {
+    font-size: 18px;
+  }
+
+
+  .employee-id {
+    font-size: 14px;
+  }
+
+
+  .employee-card-actions button {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+
+  .employee-card-arrow {
+    padding: 10px;
+    font-size: 18px;
+    bottom: 12px;
+    right: 12px;
+  }
+}
+
+
+/* ---------------------------- */
+/* SMALL MOBILE (<480px)        */
+/* ---------------------------- */
+@media (max-width: 480px) {
+  .employees-header h1 {
+    font-size: 18px;
+  }
+
+
+  .employee-card {
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+
+  .employee-avatar {
+    width: 65px !important;
+    height: 65px !important;
+  }
+  .gridview{
+  /* margin-left: 10px; */
+  background:#1677FF;
+  color:white
+}
+
+
+  .employee-name {
+    font-size: 17px;
+  }
+
+
+  .employee-id {
+    font-size: 13px;
+  }
+
+
+  .employee-card-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+
+  .employee-card-actions button {
+    width: 100%;
+  }
+
+
+  .employee-card-arrow {
+    padding: 12px;
+    font-size: 20px;
+  }
+
+
+  /* Make the filter row stack properly */
+  .employees-header > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+
+  /* Make each dropdown and Add Employee button full width */
+  .employees-header .ant-select,
+  .employees-header button {
+    width: 100% !important;
+  }
+}
+
+
+/* Updated responsive CSS for grid view only — table view untouched */
+
+
+/* ---------------------------- */
+/* HEADER FIX - ALWAYS SPACED   */
+/* ---------------------------- */
+/* .employees-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+
+.employees-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+} */
+
+
+/* ---------------------------- */
+/* GRID VIEW ONLY (CARD VIEW)   */
+/* ----------------------------
+.employee-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+
+.employee-card {
+  width: 100%;
+  text-align: left;
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+  background: rgb(216, 212, 212);
+  cursor: pointer;
+}
+
+
+.employee-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+  background: #e0e0e0;
+}
+
+
+.employee-avatar {
+  display: block;
+  margin: 0 auto 12px auto;
+  transition: transform 0.3s ease;
+}
+
+
+.employee-card:hover .employee-avatar {
+  transform: scale(1.05);
+}
+
+
+.employee-name,
+.employee-id,
+.employee-status {
+  font-size: 14px;
+  margin: 6px 0;
+  line-height: 1.3;
+}
+
+
+.employee-name { font-weight: 600; }
+.employee-status { font-weight: 500; } */
+
+
+
+/* ---------------------------- */
+/* TABLET GRID VIEW (1024px–768px) */
+/* ---------------------------- */
+/* @media (max-width: 1024px) {
+  .employee-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+
+  .employees-header h1 {
+    font-size: 22px;
+  }
+} */
+
+
+/* ---------------------------- */
+/* MOBILE GRID VIEW (<768px) ONLY */
+/* ---------------------------- */
+@media (max-width: 768px) {
+  /* GRID ONLY, NOT TABLE */
+  .employee-card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+
+  .employee-card {
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+
+  .employee-avatar {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+
+  .employee-name { font-size: 18px; }
+  .employee-id { font-size: 14px; }
+
+
+  /* Filters/buttons 100% width on mobile */
+  .employees-header > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+
+  .employees-header .ant-select,
+  .employees-header button {
+    width: 100% !important;
+  }
+
+
+  /* ---------------------------- */
+  /* TABLE FULL WIDTH + SCROLL   */
+  /* ---------------------------- */
+  .ant-table-wrapper {
+    overflow-x: auto !important;
+  }
+
+
+  .ant-table {
+    width: 900px !important; /* ensures scroll */
+  }
+}
+
+
+/* ---------------------------- */
+/* SMALL MOBILE (<480px)        */
+/* ---------------------------- */
+@media (max-width: 480px) {
+  /* .employees-header h1 { font-size: 18px; }
+
+
+  .employee-card {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+
+  .employee-avatar {
+    width: 62px !important;
+    height: 62px !important;
+  }
+
+
+  .employee-name { font-size: 17px; }
+  .employee-id { font-size: 13px; } */
+
+
+  /* TABLE scroll adjustments */
+  .ant-table {
+    width: 1000px !important;
+  }
+}
+/* 🔵 Make profile icon blue */
+.employee-card .ant-avatar {
+  background-color: #1677ff !important; /* Ant Design blue */
+  color: #ffffff;
+}
+/* 🔵 Center ONLY the profile icon */
+.employee-card .ant-avatar {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 12px;
+  background-color: #1677ff !important;
+  color: #ffffff;
+}

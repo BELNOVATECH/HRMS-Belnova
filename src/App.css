@@ -1,0 +1,58 @@
+/* ===============================
+   DARK MODE GLOBAL STYLES
+================================ */
+.dark-mode {
+  background-color: #0f172a;
+  color: #e5e7eb;
+}
+
+/* Cards */
+.dark-mode .settings-card,
+.dark-mode .ant-card {
+  background-color: #020617 !important;
+  color: #e5e7eb;
+  box-shadow: none;
+}
+
+/* Sidebar */
+.dark-mode .sidebar,
+.dark-mode .ant-layout-sider {
+  background: linear-gradient(180deg, #020617, #020617);
+}
+
+/* Navbar */
+.dark-mode .navbar {
+  background: linear-gradient(90deg, #020617, #020617);
+}
+
+/* Inputs */
+.dark-mode .ant-input,
+.dark-mode .ant-input-password,
+.dark-mode .ant-select-selector {
+  background-color: #020617 !important;
+  color: #e5e7eb !important;
+  border-color: #334155 !important;
+}
+
+/* Buttons */
+.dark-mode .ant-btn-primary {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+/* Tabs */
+.dark-mode .ant-tabs-tab {
+  color: #cbd5f5;
+}
+
+.dark-mode .ant-tabs-tab-active {
+  color: #60a5fa !important;
+}
+
+/* Text */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode label {
+  color: #e5e7eb;
+}

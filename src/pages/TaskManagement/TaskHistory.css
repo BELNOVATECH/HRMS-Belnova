@@ -1,0 +1,69 @@
+/* Container */
+.task-history-container {
+  padding: 16px;
+  margin-top: 50px;
+  margin-left: 240px;
+}
+
+/* Card */
+.task-history-card {
+  border-radius: 12px;
+}
+
+/* Table text wrapping */
+.ant-table-cell {
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* =========================
+   📱 MOBILE VIEW (≤576px)
+========================= */
+@media (max-width: 576px) {
+  .task-history-container {
+    padding: 8px;
+  }
+
+  .task-history-card {
+    border-radius: 8px;
+  }
+
+  .ant-table {
+    font-size: 12px;
+  }
+
+  .ant-card-head-title {
+    font-size: 16px;
+  }
+}
+
+/* =========================
+   📱 TABLET VIEW (577px–992px)
+========================= */
+@media (min-width: 577px) and (max-width: 992px) {
+  .task-history-container {
+    padding: 12px;
+  }
+
+  .ant-table {
+    font-size: 13px;
+  }
+
+  .ant-card-head-title {
+    font-size: 18px;
+  }
+}
+
+.employee-filter {
+  margin-bottom: 16px;
+}
+
+.employee-select {
+  width: 260px;        /* 👈 decrease length */
+  height: 38px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  font-size: 14px;
+}
+

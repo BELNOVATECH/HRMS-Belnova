@@ -1,0 +1,80 @@
+name: Auto Deploy – HRMS Portal (QA)
+
+on:
+  push:
+    branches:
+      - qa
+
+jobs:
+  deploy:
+    name: Deploy HRMS Frontend (QA)
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout QA branch
+        uses: actions/checkout@v4
+        with:
+          ref: qa
+          fetch-depth: 0
+          clean: true
+
+      - name: Show branch and commit info
+        run: |
+          echo "Branch:"
+          git branch --show-current
+          echo "Commit:"
+          git log -1 --oneline
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Create .env.qa
+        run: |
+          echo "VITE_ENV=qa" > .env.qa
+          echo "VITE_APP_NAME=HRMS-QA" >> .env.qa
+          echo "VITE_API_BASE_URL=/api" >> .env.qa
+          echo "VITE_BUILD_TIME=${{ github.run_number }}" >> .env.qa
+          echo "VITE_COMMIT_SHA=${{ github.sha }}" >> .env.qa
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build HRMS frontend (QA)
+        run: |
+          npm run build:qa
+          echo "Latest built files:"
+          ls -lt dist/assets | head -5
+
+      - name: Deploy to QA directory
+        run: |
+          echo "Cleaning old QA build..."
+          sudo rm -rf /var/www/hrms-qa
+
+          echo "Creating QA directory..."
+          sudo mkdir -p /var/www/hrms-qa
+
+          echo "Copying new build..."
+          sudo cp -r dist/* /var/www/hrms-qa/
+
+          echo "Fixing ownership and permissions..."
+          sudo chown -R www-data:www-data /var/www/hrms-qa
+          sudo chmod -R 755 /var/www/hrms-qa
+
+      - name: Reload Nginx
+        run: |
+          echo "Testing Nginx config..."
+          sudo nginx -t
+
+          echo "Reloading Nginx..."
+          sudo systemctl reload nginx
+
+      - name: Deployment Success
+        run: |
+          echo "======================================"
+          echo "QA Deployment Completed Successfully!"
+          echo "Build #: ${{ github.run_number }}"
+          echo "Commit: ${{ github.sha }}"
+          echo "======================================"

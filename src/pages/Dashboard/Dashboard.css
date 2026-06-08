@@ -1,0 +1,249 @@
+
+/* ================= BASE LAYOUT ================= */
+.hrms-dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f4f6f9;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ================= MULTIPLE RM1 WATERMARKS (ONLY) ================= */
+.hrms-dashboard-container::before {
+  content: "RM1 RM1 RM1 RM1 RM1 RM1 RM1 RM1 RM1 RM1";
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: space-around;
+
+  font-size: 140px;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.05);
+  transform: rotate(-25deg);
+  line-height: 160px;
+  letter-spacing: 30px;
+
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  mix-blend-mode: multiply;
+}
+
+/* Make sure all content stays ABOVE the watermark */
+.hrms-dashboard-main,
+.hrms-dashboard-cards,
+.dashboard-card,
+.recent-table {
+  position: relative;
+  z-index: 2;
+}
+
+/* ================= MAIN CONTENT ================= */
+.hrms-dashboard-main {
+  flex: 1;
+  padding: 25px;
+  overflow-y: auto;
+  background: transparent !important;
+}
+
+/* ================= HEADING ================= */
+.dashboard-heading {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* ================= CARDS SECTION ================= */
+.hrms-dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+  margin-bottom: 55px;
+}
+
+/* ================= DASHBOARD CARDS ================= */
+.dashboard-card {
+  padding: 40px 80px;
+  border-radius: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.18);
+  display: flex;
+  gap: 35px;
+  align-items: center;
+  height: 200px;
+}
+
+/* Hover effect */
+.dashboard-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 18px 32px rgba(0, 0, 0, 0.28);
+}
+
+/* Active click */
+.dashboard-card:active {
+  transform: scale(0.95);
+}
+
+/* ================= ICON ================= */
+.card-icon {
+  font-size: 100px;
+  color: #fff !important;
+}
+
+.card-icon svg {
+  fill: #fff !important;
+  stroke: #fff !important;
+}
+
+/* Card Title */
+.dashboard-card h3 {
+  font-size: 25px;
+  font-weight: 600;
+  margin: 0;
+  color: #fff;
+}
+
+/* Number */
+.card-number {
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* ================= CARD BACKGROUND COLORS ================= */
+.card-total {
+  background-color: #5d7896;
+}
+
+.card-active {
+  background-color: #6da079;
+}
+
+.card-inactive {
+  background-color: #c53c4a;
+}
+
+.card-uninformed {
+  background-color: #c5a032;
+}
+
+/* ================= RECENT ACTIVITIES TABLE ================= */
+.recent-table {
+  background: #fff;
+  padding: 20px;
+  border-radius: 40px;
+  box-shadow: 0px 8px 22px rgba(0, 0, 0, 0.20);
+  width: 100%;
+  margin-top: 60px;
+  overflow-x: auto;
+}
+
+.activities-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: separate;
+  border-spacing: 0 0px;
+  font-size: 22px;
+}
+
+.activities-table th {
+  background-color: #f2f4f7;
+  padding: 20px;
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 2px solid #e6e6e6;
+  font-size: 20px;
+}
+
+.activities-table td {
+  padding: 15px;
+  background: #fff;
+  border-bottom: 1px solid #ededed;
+  font-size: 20px;
+  border-radius: 12px;
+}
+
+.activities-table tr:hover td {
+  background-color: #f9f9f9;
+  transition: 0.25s ease;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .hrms-dashboard-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small Tablets & Big Phones */
+@media (max-width: 768px) {
+  .hrms-dashboard-main {
+    padding: 25px;
+  }
+
+  .hrms-dashboard-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .dashboard-card {
+    padding: 35px;
+  }
+
+  .card-icon {
+    font-size: 60px;
+  }
+
+  .dashboard-card h3 {
+    font-size: 22px;
+  }
+
+  .card-number {
+    font-size: 30px;
+  }
+
+  .recent-table {
+    padding: 30px;
+  }
+
+  .activities-table td {
+    padding: 18px;
+    font-size: 18px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .dashboard-card h3 {
+    font-size: 20px;
+  }
+
+  .card-number {
+    font-size: 26px;
+  }
+
+  .card-icon {
+    font-size: 45px;
+  }
+
+  .recent-table {
+    padding: 20px;
+  }
+
+  .activities-table {
+    min-width: 500px;
+  }
+
+  .activities-table td {
+    font-size: 16px;
+    padding: 12px 10px;
+  }
+}

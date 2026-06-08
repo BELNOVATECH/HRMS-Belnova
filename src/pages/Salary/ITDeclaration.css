@@ -1,0 +1,123 @@
+/* PAGE */
+.it-declaration-page {
+  background: #f5f7fb;
+  min-height: 100vh;
+  padding: 24px;
+
+  /* sidebar + header safe spacing */
+  margin-left: 240px;
+  margin-top: 64px;
+}
+
+/* CENTER CONTENT */
+.it-container {
+  max-width: 1300px;
+  margin: auto;
+}
+
+/* HEADER */
+.it-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.it-title {
+  margin: 0 !important;
+  font-weight: 600;
+}
+
+.it-header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* STATUS CARD */
+.it-status-card {
+  background: #fffbe6 !important;
+  border: 1px solid #ffe58f;
+}
+
+.it-tag {
+  margin-left: 10px;
+}
+
+/* ================= CREATE PLAN ================= */
+
+.planner-create-card {
+  text-align: center;
+  padding: 50px !important;
+  max-width: 520px;
+  margin: 60px auto;
+  border-radius: 14px;
+}
+
+/* ================= GRID ================= */
+
+.planner-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* BOX */
+.planner-box {
+  text-align: center;
+   padding: 2px ; 
+  border-radius: 12px !important;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.planner-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* ICON */
+.planner-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #1677ff;
+}
+
+/* DASHED BOX */
+.dashed {
+  border: 2px dashed #d9d9d9 !important;
+  background: #fafafa;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1200px) {
+  .planner-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .planner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .it-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .it-declaration-page {
+    margin-left: 0;
+    padding: 16px;
+  }
+}
+/* remove default card header padding */
+.ant-card-head {
+  min-height: 40px;
+}
+
+/* cleaner edit button */
+.ant-card-extra {
+  padding: 0;
+}

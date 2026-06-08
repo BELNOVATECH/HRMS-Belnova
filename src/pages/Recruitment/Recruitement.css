@@ -1,0 +1,215 @@
+/* --------- FIXED PAGE POSITION BESIDE SIDEBAR ---------- */
+.recruitment-container {
+  margin-left: 250px;  
+  margin-top: 70px;
+  padding: 20px;
+  min-height: calc(100vh - 70px);
+  background: #f5f6fa;
+  overflow: hidden;
+  transition: margin-left 0.3s ease;
+  width: calc(100% - 250px);
+  position: relative;
+}
+
+/* HEADER */
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+.recruit{
+  display: flex;
+ justify-content: space-between;
+ align-items: center;
+margin-bottom: 14
+}
+
+/* CARD MODULE */
+.module-card {
+  margin-bottom: 25px;
+}
+
+/* DEFAULT TABLE SCROLL — JOB LISTINGS + INTERVIEWS */
+.module-card .ant-table-wrapper {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.module-card table {
+  min-width: 900px;
+}
+
+/* ------------------------ DESKTOP: REMOVE HORIZONTAL SCROLL FOR CANDIDATES TABLE ------------------------ */
+.candidate-section .ant-table-wrapper {
+  overflow-x: hidden !important;
+}
+
+.candidate-section table {
+  min-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Sidebar Collapse */
+.sidebar-collapsed ~ .recruitment-container {
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+
+/* 🔒 Fix AntD production alignment issues */
+.ant-table-thead > tr > th {
+  text-align: left !important;
+}
+
+.ant-table-tbody > tr > td {
+  text-align: left !important;
+  vertical-align: middle !important;
+}
+
+/* Center only tags & actions */
+.ant-table-cell .ant-tag {
+  display: inline-block;
+}
+
+
+/* -------------------- MOBILE VIEW (≤ 768px) -------------------- */
+@media (max-width: 768px) {
+
+  .recruitment-container {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+    margin-top: 90px;
+  }
+
+  button,
+  .ant-btn {
+    width: 100%;
+  }
+
+  .module-card .ant-table-wrapper {
+    max-height: 250px;
+  }
+
+  /* ------ FORCE HORIZONTAL SCROLL FOR CANDIDATES TABLE ------ */
+  .candidate-section .ant-table-wrapper {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .candidate-section table {
+    min-width: 700px !important; /* force horizontal scroll */
+    table-layout: fixed;
+    white-space: nowrap !important;
+  }
+
+  .candidate-section .ant-table-cell {
+    white-space: nowrap !important;
+  }
+
+  /* Actions buttons alignment */
+  .candidate-section .ant-table-cell > button {
+    width: auto !important;
+    margin-right: 6px;
+  }
+}
+
+/* -------------------- SMALL DEVICES (≤ 480px) -------------------- */
+@media (max-width: 480px) {
+
+  .candidate-section table {
+    min-width: 650px !important;
+  }
+
+  .candidate-section .ant-table-wrapper {
+    overflow-x: auto !important;
+  }
+
+  .candidate-section .ant-table-cell {
+    white-space: nowrap !important;
+  }
+
+  .candidate-section .ant-table-cell > button {
+    width: auto !important;
+  }
+}
+
+/* -------------------- EXTRA SMALL DEVICES (≤ 320px) -------------------- */
+/* -------------------- EXTRA SMALL DEVICES (≤ 320px) -------------------- */
+@media (max-width: 320px) {
+
+  /* Make header text full width */
+  .header-actions {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 10px;
+  }
+
+
+  .header-actions h2 {
+    width: 100% !important;
+    margin-bottom: 10px;
+    text-align: left !important;
+    font-size: 18px;
+  }
+
+  /* Move Add Candidate button to next line */
+  .action-buttons {
+    width: 100% !important;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .action-buttons button {
+    width: auto !important;
+  }
+
+  /* Table scroll */
+  .candidate-section table {
+    min-width: 600px !important;
+  }
+
+  .candidate-section .ant-table-wrapper {
+    overflow-x: auto !important;
+  }
+
+  .candidate-section .ant-table-cell {
+    white-space: nowrap !important;
+  }
+
+  .candidate-section .ant-table-cell > button {
+    width: auto !important;
+  }
+}
+@media (max-width: 600px) {
+  .recruit {
+    flex-direction: column;
+    align-items: flex-start; /* text + filters left aligned */
+    gap: 10px;
+  }
+
+  .recruit h2 {
+    width: 100%;
+    text-align: left;
+  }
+
+  .recruit-actions {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .recruit-actions .ant-select,
+  .recruit-actions button {
+    width: 100% !important;  /* full width for buttons/selects */
+  }
+}

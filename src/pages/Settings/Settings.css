@@ -1,0 +1,124 @@
+/* ===============================
+   GLOBAL LAYOUT VARIABLES
+================================ */
+:root {
+  --sidebar-width-desktop: 240px;
+  --sidebar-width-tablet: 200px;
+  --navbar-height-desktop: 64px;
+  --navbar-height-mobile: 72px;
+}
+
+
+/* ===============================
+   MAIN LAYOUT WRAPPER
+================================ */
+.settings-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f0f5ff;
+}
+
+
+/* ===============================
+   CONTENT AREA (KEY FIX)
+================================ */
+.settings-center-container {
+  flex: 1;
+  margin-left: var(--sidebar-width-desktop);
+  margin-top: var(--navbar-height-desktop);
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+
+/* ===============================
+   SETTINGS CARD
+================================ */
+.settings-card {
+  width: 100%;
+  max-width: 900px;
+
+  background: #ffffff !important;
+  padding: 30px;
+  border-radius: 15px;
+
+  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.09);
+}
+
+
+/* ===============================
+   TITLE
+================================ */
+.settings-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+
+/* ===============================
+   TAB CONTENT
+================================ */
+.tab-section {
+  margin-top: 20px;
+}
+
+
+/* ===============================
+   SETTINGS ROW
+================================ */
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+/* ===============================
+   TABLET VIEW (≤ 1024px)
+================================ */
+@media (max-width: 1024px) {
+  .settings-center-container {
+    margin-left: var(--sidebar-width-tablet);
+    margin-top: var(--navbar-height-desktop);
+  }
+
+  .settings-card {
+    max-width: 95%;
+  }
+}
+
+
+/* ===============================
+   MOBILE VIEW (≤ 768px)
+================================ */
+@media (max-width: 768px) {
+  .settings-center-container {
+    margin-left: 0; /* Sidebar overlays */
+    margin-top: var(--navbar-height-mobile);
+    padding: 16px;
+  }
+
+  .settings-card {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .settings-title {
+    font-size: 22px;
+  }
+
+  .setting-row {
+    font-size: 14px;
+  }
+}
