@@ -23,7 +23,7 @@ import logo from "../../assets/Logo/logo.jpg";
 
 
 
-const API_BASE = "https://hrms-be-ppze.onrender.com";
+const API_BASE = "https://belnova-hrms-be-tckt.onrender.com";
 // 🔹 Occupation ID → Name mapping
 const occupationMap: Record<number, string> = {
   1: "Government Employee",
@@ -105,7 +105,7 @@ const EmployeeDetailsPage: React.FC = () => {
 
 useEffect(() => {
   axios
-    .get("https://hrms-be-ppze.onrender.com/employees")
+    .get("https://belnova-hrms-be-tckt.onrender.com/employees")
     .then((res) => setEmployees(res.data))
     .catch(() => {});
 }, []);
