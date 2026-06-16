@@ -1,41 +1,403 @@
-/* Full-page container */
+/* ═══════════════════════════════════════════
+   LOGIN PAGE — SPLIT PANEL PREMIUM DESIGN
+   Belnova Tech HRMS
+═══════════════════════════════════════════ */
+
+/* ── Page container ── */
 .login-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
-  background: linear-gradient(180deg, #e0f2f1 0%, #ffffff 100%);
+  width: 100%;
+  overflow: hidden;
 }
 
-/* Login box */
-.login-box {
-  background: #ffffff;
-  padding: 40px 32px;
-  border-radius: 12px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
-  width: 360px;
-  max-width: 90%;
+/* ═══════════════════════════════════════════
+   LEFT BRAND PANEL
+═══════════════════════════════════════════ */
+.login-brand-panel {
+  width: 48%;
+  min-width: 320px;
+  background: linear-gradient(90deg, #14478e, #085b5b);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Blurred watermark logo letter */
+.brand-bg-logo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.brand-bg-letter {
+  font-size: 420px;
+  font-weight: 900;
+  color: rgba(49, 119, 216, 0.09);
+  line-height: 1;
+  filter: blur(8px);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  letter-spacing: -20px;
+}
+
+/* Ambient glow orbs */
+.brand-glow-1 {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(49, 119, 216, 0.22) 0%, transparent 70%);
+  top: -80px;
+  left: -80px;
+  pointer-events: none;
+}
+
+.brand-glow-2 {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.18) 0%, transparent 70%);
+  bottom: -40px;
+  right: -20px;
+  pointer-events: none;
+}
+
+/* Brand content */
+.brand-content {
+  position: relative;
+  z-index: 5;
   text-align: center;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.login-box h3 {
-  margin-bottom: 24px;
-  font-weight: 700;
-  color: #3177d8;
+.brand-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(49, 119, 216, 0.85), rgba(124, 58, 237, 0.85));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 900;
+  color: #ffffff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  box-shadow:
+    0 8px 32px rgba(49, 100, 220, 0.55),
+    0 0 60px rgba(49, 100, 220, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
 }
 
-.login-box .ant-form-item-label > label {
-  font-weight: 500;
+.brand-name {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin: 0 0 6px;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-.login-btn {
-  background: linear-gradient(90deg, #336ab7, #0ea5a4);
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
+.brand-tagline {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin: 0 0 24px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.brand-divider {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #3177d8, #7c3aed);
+  border-radius: 2px;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.brand-description {
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 12px;
+  line-height: 1.8;
+  max-width: 220px;
+  margin: 0 0 28px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.brand-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.brand-dots .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
 }
 
-.login-btn:hover {
-  background: linear-gradient(90deg, #0ea5a4, #3177d8);
+.brand-dots .dot.active {
+  width: 18px;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+/* ═══════════════════════════════════════════
+   RIGHT FORM PANEL
+═══════════════════════════════════════════ */
+.login-form-panel {
+  flex: 1;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 32px;
+}
+
+/* Subtle watermark behind form */
+.form-bg-logo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.form-bg-letter {
+  font-size: 460px;
+  font-weight: 900;
+  color: rgba(49, 119, 216, 0.03);
+  line-height: 1;
+  filter: blur(12px);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Login card */
+.login-box {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 380px;
+}
+
+.login-box-header {
+  margin-bottom: 32px;
+}
+
+.login-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0d1b4b;
+  margin: 0 0 6px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  letter-spacing: -0.3px;
+}
+
+.login-subtitle {
+  font-size: 14px;
+  color: #9ca3af;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Ant Design overrides — form labels */
+.login-box .ant-form-item-label > label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 0.1px;
+}
+
+/* Ant Design overrides — inputs */
+.login-box .ant-input,
+.login-box .ant-input-password {
+  border-radius: 10px;
+  border: 1.5px solid #e5e7eb;
+  background: #f8faff;
+  font-size: 14px;
+  color: #1f2937;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-box .ant-input:hover,
+.login-box .ant-input-password:hover {
+  border-color: #a5b4fc;
+}
+
+.login-box .ant-input:focus,
+.login-box .ant-input-affix-wrapper:focus,
+.login-box .ant-input-affix-wrapper-focused {
+  border-color: #3177d8;
+  box-shadow: 0 0 0 3px rgba(49, 119, 216, 0.1);
+  background: #ffffff;
+}
+
+.login-box .ant-input-affix-wrapper {
+  border-radius: 10px;
+  border: 1.5px solid #e5e7eb;
+  background: #f8faff;
+  padding: 0 11px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-box .ant-input-affix-wrapper:hover {
+  border-color: #a5b4fc;
+}
+
+.login-box .ant-input-affix-wrapper-focused {
+  border-color: #3177d8;
+  box-shadow: 0 0 0 3px rgba(49, 119, 216, 0.1);
+  background: #ffffff;
+}
+
+.login-box .ant-input-affix-wrapper > input.ant-input {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Login button */
+.login-btn.ant-btn-primary {
+ background: linear-gradient(90deg, #336ab7, #0ea5a4);
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  height: 46px;
+  box-shadow: 0 6px 20px rgba(49, 100, 220, 0.35);
+  transition: all 0.25s ease;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.login-btn.ant-btn-primary:hover:not(:disabled) {
+ background: linear-gradient(90deg, #336ab7, #0ea5a4);
+  box-shadow: 0 8px 28px rgba(49, 100, 220, 0.45);
+  transform: translateY(-1px);
+}
+
+.login-btn.ant-btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(49, 100, 220, 0.3);
+}
+
+.login-btn.ant-btn-primary:disabled,
+.login-btn.ant-btn-primary[disabled] {
+  background: linear-gradient(90deg, #93a8e0, #b89cf0);
+  border: none;
+  opacity: 0.7;
+}
+
+/* Dev mode badge */
+.dev-mode-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 20px;
+  font-size: 11px;
+  color: #9ca3af;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.dev-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f59e0b;
+  flex-shrink: 0;
+}
+
+/* Footer copyright */
+.login-footer {
+  position: absolute;
+  bottom: 20px;
+  font-size: 11px;
+  color: #d1d5db;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  z-index: 5;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — tablet & mobile
+═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-brand-panel {
+    width: 100%;
+    min-width: unset;
+    height: 200px;
+    flex-shrink: 0;
+  }
+
+  .brand-content {
+    padding: 24px 20px;
+  }
+
+  .brand-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+
+  .brand-name {
+    font-size: 15px;
+    letter-spacing: 2px;
+  }
+
+  .brand-description {
+    display: none;
+  }
+
+  .brand-dots {
+    display: none;
+  }
+
+  .brand-bg-letter {
+    font-size: 220px;
+  }
+
+  .login-form-panel {
+    flex: 1;
+    justify-content: flex-start;
+    padding: 32px 24px;
+  }
+
+  .login-title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form-panel {
+    padding: 24px 20px;
+  }
+
+  .login-box {
+    max-width: 100%;
+  }
 }

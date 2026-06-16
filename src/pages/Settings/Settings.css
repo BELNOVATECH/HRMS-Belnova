@@ -94,7 +94,7 @@
 }
 
 .settings-card .ant-tabs-ink-bar {
- background: linear-gradient(135deg, #1e1b4b 0%, #769acc 50%, #0f0974 100%);
+ background: linear-gradient(90deg, #14478e, #085b5b);
   border-radius: 2px !important;
 }
 
@@ -152,7 +152,7 @@
    SUBMIT BUTTON
 ================================ */
 .settings-card .ant-btn-primary {
-background: linear-gradient(135deg, #1e1b4b 0%, #769acc 50%, #0f0974 100%);
+ background: linear-gradient(90deg, #14478e, #085b5b);
   border: none !important;
   border-radius: 10px !important;
   height: 46px !important;
