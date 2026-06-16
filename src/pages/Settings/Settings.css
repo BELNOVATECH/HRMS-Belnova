@@ -4,10 +4,12 @@
 :root {
   --sidebar-width-desktop: 240px;
   --sidebar-width-tablet: 200px;
-  --navbar-height-desktop: 64px;
+  --navbar-height-desktop: 68px;
   --navbar-height-mobile: 72px;
+  --teal-dark: #063f3f;
+  --teal-mid: #0a5252;
+  --teal-accent: #1dd9c0;
 }
-
 
 /* ===============================
    MAIN LAYOUT WRAPPER
@@ -15,74 +17,196 @@
 .settings-layout {
   display: flex;
   min-height: 100vh;
-  background: #f0f5ff;
+  background: #eef4f4;
 }
 
-
 /* ===============================
-   CONTENT AREA (KEY FIX)
+   CONTENT AREA
 ================================ */
 .settings-center-container {
   flex: 1;
   margin-left: var(--sidebar-width-desktop);
   margin-top: var(--navbar-height-desktop);
-
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
-  padding: 24px;
+  padding: 36px 28px;
   box-sizing: border-box;
 }
-
 
 /* ===============================
    SETTINGS CARD
 ================================ */
 .settings-card {
   width: 100%;
-  max-width: 900px;
-
+  max-width: 780px;
   background: #ffffff !important;
-  padding: 30px;
-  border-radius: 15px;
-
-  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.09);
+  border-radius: 18px !important;
+  border: none !important;
+  box-shadow: 0 4px 32px rgba(6, 63, 63, 0.10) !important;
+  overflow: hidden;
 }
 
+/* Card top accent bar */
+.settings-card::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, #063f3f, #1dd9c0);
+  border-radius: 18px 18px 0 0;
+  margin: -24px -24px 24px -24px;
+}
 
 /* ===============================
    TITLE
 ================================ */
-.settings-title {
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 20px;
+.settings-card h2 {
+  font-size: 22px;
   font-weight: 700;
+  color: #063f3f;
+  margin-bottom: 20px;
+  letter-spacing: 0.01em;
 }
-
 
 /* ===============================
-   TAB CONTENT
+   TABS — premium teal style
 ================================ */
-.tab-section {
-  margin-top: 20px;
+.settings-card .ant-tabs-nav {
+  margin-bottom: 4px !important; /* was 28px */
 }
 
+.settings-card .ant-tabs-tab {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #6b8f8f !important;
+  padding: 8px 20px !important;
+  border-radius: 8px 8px 0 0 !important;
+  transition: all 0.2s ease !important;
+}
+
+.settings-card .ant-tabs-tab:hover {
+  color: #0a5252 !important;
+}
+
+.settings-card .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #063f3f !important;
+  font-weight: 600 !important;
+}
+
+.settings-card .ant-tabs-ink-bar {
+ background: linear-gradient(135deg, #1e1b4b 0%, #769acc 50%, #0f0974 100%);
+  border-radius: 2px !important;
+}
 
 /* ===============================
-   SETTINGS ROW
+   FORM LABELS
 ================================ */
-.setting-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin-bottom: 15px;
-  font-size: 16px;
-  font-weight: 500;
+.settings-card .ant-form-item-label > label {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #2d5f5f !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase !important;
 }
 
+/* ===============================
+   FORM INPUTS
+================================ */
+.settings-card .ant-input,
+.settings-card .ant-input-affix-wrapper,
+.settings-card .ant-input-password {
+  border-radius: 10px !important;
+  border: 1.5px solid #c8e0e0 !important;
+  background: #f6fafa !important;
+  font-size: 14px !important;
+  height: 44px !important;
+  color: #1a3a3a !important;
+  transition: border 0.2s, box-shadow 0.2s !important;
+}
+
+.settings-card .ant-input-affix-wrapper {
+  padding: 0 14px !important;
+}
+
+.settings-card .ant-input-affix-wrapper .ant-input {
+  height: auto !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.settings-card .ant-input:focus,
+.settings-card .ant-input-affix-wrapper:focus,
+.settings-card .ant-input-affix-wrapper-focused {
+  border-color: #5155c5 !important;
+  box-shadow: 0 0 0 3px rgba(29, 217, 192, 0.12) !important;
+  background: #ffffff !important;
+}
+
+.settings-card .ant-input-prefix .anticon {
+  color: #0a5252 !important;
+  font-size: 15px !important;
+  margin-right: 6px !important;
+}
+
+/* ===============================
+   SUBMIT BUTTON
+================================ */
+.settings-card .ant-btn-primary {
+background: linear-gradient(135deg, #1e1b4b 0%, #769acc 50%, #0f0974 100%);
+  border: none !important;
+  border-radius: 10px !important;
+  height: 46px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.03em !important;
+  box-shadow: 0 4px 16px rgba(6, 63, 63, 0.3) !important;
+  transition: opacity 0.2s, transform 0.15s !important;
+  margin-top: 8px !important;
+}
+
+.settings-card .ant-btn-primary:hover {
+  opacity: 0.9 !important;
+  transform: translateY(-1px) !important;
+}
+
+.settings-card .ant-btn-primary:active {
+  transform: translateY(0) !important;
+}
+
+/* ===============================
+   FORM ITEM SPACING
+================================ */
+.settings-card .ant-form-item {
+  margin-bottom: 20px !important;
+}
+
+/* ===============================
+   REQUIRED ASTERISK
+================================ */
+.settings-card .ant-form-item-required::before {
+  color: #1dd9c0 !important;
+}
+
+/* ===============================
+   THEME TAB — SWITCH + SELECT
+================================ */
+.settings-card .ant-switch-checked {
+  background: #0a5252 !important;
+}
+
+.settings-card .ant-select-selector {
+  border-radius: 10px !important;
+  border: 1.5px solid #c8e0e0 !important;
+  background: #f6fafa !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.settings-card .ant-select-focused .ant-select-selector {
+  border-color: #1dd9c0 !important;
+  box-shadow: 0 0 0 3px rgba(29, 217, 192, 0.12) !important;
+}
 
 /* ===============================
    TABLET VIEW (≤ 1024px)
@@ -91,6 +215,7 @@
   .settings-center-container {
     margin-left: var(--sidebar-width-tablet);
     margin-top: var(--navbar-height-desktop);
+    padding: 24px 20px;
   }
 
   .settings-card {
@@ -98,27 +223,27 @@
   }
 }
 
-
 /* ===============================
    MOBILE VIEW (≤ 768px)
 ================================ */
 @media (max-width: 768px) {
   .settings-center-container {
-    margin-left: 0; /* Sidebar overlays */
+    margin-left: 0;
     margin-top: var(--navbar-height-mobile);
     padding: 16px;
   }
 
   .settings-card {
     max-width: 100%;
-    padding: 20px;
+    padding: 20px !important;
   }
 
-  .settings-title {
-    font-size: 22px;
+  .settings-card h2 {
+    font-size: 18px;
   }
 
-  .setting-row {
-    font-size: 14px;
+  .settings-card .ant-tabs-tab {
+    padding: 6px 14px !important;
+    font-size: 13px !important;
   }
 }

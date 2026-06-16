@@ -6,9 +6,9 @@
   left: 0;
   width: 250px;
   height: calc(100vh - 64px);
-  background: linear-gradient(180deg, #6779a3 0%, #0ea5a4 100%);
+background: linear-gradient(135deg, #1e1b4b 0%, #769acc 50%, #0f0974 100%);
   padding-top: 16px;
-  overflow: hidden; /* ✅ prevent double scrollbar */
+  overflow: hidden; 
   transition: all 0.3s ease;
   z-index: 999;
 }
@@ -36,11 +36,7 @@
 /* Leave Management HOVER (light like Attendance) */
 .hrms-dashboard-sidebar
   .ant-menu-submenu-title:hover {
-  background: linear-gradient(
-    90deg,
-    #06b6d4,
-    #0ea5a4
-  ) !important;
+  background: linear-gradient(135deg, #1e1b4b 0%, #769acc 50%, #0f0974 100%);
 
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(6, 182, 212, 0.45);
@@ -52,9 +48,10 @@
   .ant-menu-submenu-open
   > .ant-menu-submenu-title {
   background: linear-gradient(
-    90deg,
-    #06b6d4,
-    #0ea5a4
+    135deg,
+    #1e1b4b 0%,
+    #769acc 50%,
+    #0f0974 100%
   ) !important;
 
   border-radius: 8px;
@@ -151,7 +148,7 @@
   padding-left: 48px !important;
 }
 .hrms-dashboard-sidebar .ant-menu-submenu-title:hover {
-  background: linear-gradient(90deg, #06b6d4, #0ea5a4) !important;
+ background: linear-gradient(135deg, #1e1b4b 0%, #769acc 50%, #0f0974 100%);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(6, 182, 212, 0.45);
 }

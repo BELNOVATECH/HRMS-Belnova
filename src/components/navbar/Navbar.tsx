@@ -16,7 +16,9 @@ import {
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../components/sidebar/Sidebar";
+// @ts-ignore
 import "./Navbar.css";
+// @ts-ignore
 import logo from "../../assets/Logo/logo.jpg";
 
 const Navbar: React.FC = () => {
@@ -94,7 +96,11 @@ const Navbar: React.FC = () => {
               ☰
             </span>
           )}
-          <img src={logo} alt="App Logo" className="navbar-logo" />
+        <img src={logo} alt="App Logo" className="navbar-logo" />
+<div className="navbar-brand-text">
+  <span className="navbar-brand-name">BELNOVA TECH</span>
+  <span className="navbar-brand-sub">HRMS PORTAL</span>
+</div>
         </div>
 
         <div className="hrms-dashboard-navbar-right">
