@@ -88,7 +88,7 @@ export interface EmployeeDetails {
 }
 
 
-const API_URL = "https://hrms-be-ppze.onrender.com/employees";
+const API_URL = "https://belnova-hrms-be-tckt.onrender.com/employees";
 
 const Employees: React.FC = () => {
   const navigate = useNavigate();
@@ -160,7 +160,7 @@ setFilteredEmployees(sortedEmployees);
 
   // 🔥 KEEP RENDER AWAKE
   const interval = setInterval(() => {
-    axios.get("https://hrms-be-ppze.onrender.com/employees")
+    axios.get("https://belnova-hrms-be-tckt.onrender.com/employees")
       .catch(() => {});
   }, 4 * 60 * 1000); // every 4 minutes
 
@@ -171,7 +171,7 @@ setFilteredEmployees(sortedEmployees);
   const loadDepartments = async () => {
     try {
       const res = await axios.get(
-        "https://hrms-be-ppze.onrender.com/departments"
+        "https://belnova-hrms-be-tckt.onrender.com/departments/"
       );
       setDepartments(res.data.filter((d: any) => d.is_active));
     } catch (err) {
