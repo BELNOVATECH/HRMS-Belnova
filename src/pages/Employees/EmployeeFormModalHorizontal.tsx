@@ -277,7 +277,7 @@ useEffect(() => {
 
   useEffect(() => {
   axios
-    .get("https://belnova-hrms-be-tckt.onrender.com/employees")
+    .get("https://belnova-hrms-be-7.onrender.com//employees")
     
     .then((res) => {
       setManagers(res.data);

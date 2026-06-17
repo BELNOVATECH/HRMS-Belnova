@@ -27,7 +27,7 @@ import { getLeavesApi } from "../../services/leaveListService";
 import { getLeaveBalanceApi } from "../../services/leaveBalanceService";
 
 
-const FILE_BASE_URL = "https://hrms-be-ppze.onrender.com/";
+const FILE_BASE_URL = "https://belnova-hrms-be-7.onrender.com//";
 
 const MyApprovals: React.FC = () => {
 const managerId = Number(localStorage.getItem("hrms-employee-id"));

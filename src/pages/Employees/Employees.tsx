@@ -88,8 +88,7 @@ export interface EmployeeDetails {
 }
 
 
-const API_URL = "https://belnova-hrms-be-tckt.onrender.com/employees";
-
+const API_URL = "https://belnova-hrms-be-7.onrender.com/employees";
 const Employees: React.FC = () => {
   const navigate = useNavigate();
 

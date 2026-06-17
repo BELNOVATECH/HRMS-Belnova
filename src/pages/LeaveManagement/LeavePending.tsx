@@ -14,7 +14,8 @@ import {cancelLeaveApi} from "../../services/CancelLeaveService";
 const FILE_BASE_URL = "https://hrms-be-ppze.onrender.com/";
 
 const LeavePending: React.FC = () => {
-  const empId = Number(localStorage.getItem("hrms-employee-id"));
+  // const empId = Number(localStorage.getItem("hrms-employee-id"));
+  const empId=203;
 
   const [leaves, setLeaves] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);

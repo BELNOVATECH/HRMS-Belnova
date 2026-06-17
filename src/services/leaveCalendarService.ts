@@ -1,7 +1,7 @@
 // src/services/leaveCalendarService.ts
 import axios from "axios";
 
-const BASE_URL = "https://hrms-be-ppze.onrender.com";
+const BASE_URL = "https://belnova-hrms-be-7.onrender.com";
 
 const api = axios.create({
   baseURL: BASE_URL,

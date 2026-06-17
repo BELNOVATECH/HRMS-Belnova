@@ -19,7 +19,8 @@ interface LeaveItem {
 
 const LeaveBalance: React.FC = () => {
   const navigate = useNavigate();
-const empId = Number(localStorage.getItem("hrms-employee-id"));
+// const empId = Number(localStorage.getItem("hrms-employee-id"));
+const empId=203;
 
   const [year, setYear] = useState<number>(new Date().getFullYear());
   const [month] = useState<number>(new Date().getMonth() + 1);

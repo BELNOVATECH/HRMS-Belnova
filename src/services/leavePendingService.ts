@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://hrms-be-ppze.onrender.com";
+const BASE_URL = "https://belnova-hrms-be-7.onrender.com";
 
 export interface PendingLeaveItem {
   leave_request_id: number;

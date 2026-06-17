@@ -7,7 +7,7 @@ import {
   toBackendPermission,
 } from "../utils/accessMapper";
 
-const API = "https://hrms-be-ppze.onrender.com/master";
+const API = "https://belnova-hrms-be-7.onrender.com/master";
 
 /* ================= GET ================= */
 
@@ -19,7 +19,7 @@ export const getModules = async (): Promise<Module[]> => {
 
 // ✅ screens changed to sub-modules
 export const getScreens = async (): Promise<Screen[]> => {
-  const res = await axios.get(`${API}/sub-modules/`);
+  const res = await axios.get(`${API}/screens/`);
   const list = Array.isArray(res.data) ? res.data : res.data?.data || [];
   return list.map(mapScreen);
 };

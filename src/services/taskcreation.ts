@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://hrms-be-ppze.onrender.com",
+  baseURL: "https://belnova-hrms-be-7.onrender.com",
 });
 
 

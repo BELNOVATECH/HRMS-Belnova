@@ -11,8 +11,8 @@ import { fetchHolidays, HolidayApi } from "../../services/holidayService";
 import "./LeaveCalendar.css";
 
 const LeaveCalendar: React.FC = () => {
-const empId = Number(localStorage.getItem("hrms-employee-id"));
-
+// const empId = Number(localStorage.getItem("hrms-employee-id"));
+const empId=203;
   const [loading, setLoading] = useState(false);
   const [leaves, setLeaves] = useState<LeaveHistoryItem[]>([]);
   const [holidays, setHolidays] = useState<HolidayApi[]>([]);

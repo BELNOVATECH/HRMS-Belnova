@@ -51,8 +51,8 @@ const LeaveApply: React.FC = () => {
   const fromSession = Form.useWatch("fromSession", form);
 
   const navigate = useNavigate();
-const empId = Number(localStorage.getItem("hrms-employee-id"));
-
+// const empId = Number(localStorage.getItem("hrms-employee-id"));
+const empId=203;
 
 
   const [employees, setEmployees] = useState<Employee[]>([]);
