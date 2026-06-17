@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://hrms-be-ppze.onrender.com";
+const API_BASE_URL = "https://belnova-hrms-be-7.onrender.com";
 
 export interface HolidayApi {
   id: number;

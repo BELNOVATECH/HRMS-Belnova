@@ -11,7 +11,7 @@ export const getProjectModules = async (
   token: string
 ): Promise<ProjectModule[]> => {
   const res = await axios.get(
-    "https://hrms-be-ppze.onrender.com/master-project-module/",
+    "https://belnova-hrms-be-7.onrender.com/master-project-module/",
     {
       headers: {
         Authorization: `Bearer ${token}`,

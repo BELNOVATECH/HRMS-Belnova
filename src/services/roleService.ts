@@ -7,7 +7,7 @@ export interface Role {
   is_active: boolean;
 }
 
-const API = "https://hrms-be-ppze.onrender.com";
+const API = "https://belnova-hrms-be-7.onrender.com";
 
 /* ================= GET ================= */
 

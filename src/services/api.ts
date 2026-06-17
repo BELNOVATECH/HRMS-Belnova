@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://hrms-be-ppze.onrender.com";
+const API_URL = "https://belnova-hrms-be-7.onrender.com";
 
 export const api = axios.create({
   baseURL: API_URL,

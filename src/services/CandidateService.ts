@@ -1,7 +1,7 @@
 import axios from "axios";
 import api from "./taskcreation";
 
-const API_URL = "https://hrms-be-ppze.onrender.com";
+const API_URL = "https://belnova-hrms-be-7.onrender.com";
 
 
 
@@ -145,7 +145,7 @@ export const createJobOpening = (data: {
   axios.post(`${API_URL}/job-openings`, data);
 
 export const getJobOpenings = () =>
-  axios.get(`${API_URL}/job-openings`);
+  axios.get(`${API_URL}/job-openings/job-openings`);
 
 
 export const updateJobOpening = (
@@ -347,3 +347,4 @@ export const getTaskHistoryByFilters = (params: {
 
 export const getTaskHistoryByTaskId = (taskId: number) =>
   axios.get(`/tasks/${taskId}/history`);
+

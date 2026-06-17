@@ -391,7 +391,7 @@ export default function RecruitmentScreen(): JSX.Element {
             type="link"
             onClick={() =>
               window.open(
-                `https://hrms-be-ppze.onrender.com/${encodedPath}`,
+                `https://belnova-hrms-be-7.onrender.com//${encodedPath}`,
                 "_blank"
               )
             }

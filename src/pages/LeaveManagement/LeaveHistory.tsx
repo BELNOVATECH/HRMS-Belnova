@@ -8,8 +8,8 @@ import {
 import "./LeaveHistory.css";
 
 const LeaveHistory: React.FC = () => {
-  const empId = Number(localStorage.getItem("hrms-employee-id"));
-
+  // const empId = Number(localStorage.getItem("hrms-employee-id"));
+const empId=203;
   const [data, setData] = useState<EmployeeLeaveItem[]>([]);
   const [loading, setLoading] = useState(false);
   const LEAVE_STATUS_MAP: Record<number, { label: string; color: string }> = {
