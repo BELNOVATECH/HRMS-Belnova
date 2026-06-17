@@ -9,9 +9,9 @@
   position: relative;
 }
 
-/* ================= MULTIPLE RM1 WATERMARKS (ONLY) ================= */
-.hrms-dashboard-container::before {
-  content: "RM1 RM1 RM1 RM1 RM1 RM1 RM1 RM1 RM1 RM1";
+/* ================= MULTIPLE BELNOVA HRMS WATERMARKS (ONLY) ================= */
+/* .hrms-dashboard-container::before {
+  content: "BELNOVA HRMS";
   position: fixed;
   inset: 0;
   display: flex;
@@ -30,7 +30,7 @@
   user-select: none;
   z-index: 0;
   mix-blend-mode: multiply;
-}
+} */
 
 /* Make sure all content stays ABOVE the watermark */
 .hrms-dashboard-main,

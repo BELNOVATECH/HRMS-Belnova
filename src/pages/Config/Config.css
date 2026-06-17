@@ -1,118 +1,484 @@
-.config-wrapper {
-  padding: 20px;
-  margin-left: 250px;
+/* ===============================
+   CSS VARIABLES
+================================ */
+:root {
+  --teal-dark: #063f3f;
+  --teal-mid: #0a5252;
+  --teal-accent: #1dd9c0;
+  --card-bg: #ffffff;
+  --page-bg: #eef4f4;
 }
 
-/* FIRST ROW FLEX */
+/* ===============================
+   WRAPPER
+================================ */
+.config-wrapper {
+  padding: 20px 18px;
+  margin-left: 250px;
+  background: var(--page-bg);
+  min-height: 100vh;
+}
+
+/* ===============================
+   GRID ROW
+================================ */
 .config-row {
   display: flex;
-  gap: 20px;
+  gap: 14px;
   flex-wrap: nowrap;
+  margin-bottom: 14px;
 }
 
-/* Two cards same row */
-.config-card {
-  width: 50%;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  margin-top: 50px;
+/* ===============================
+   CARD BASE
+================================ */
+.config-card,
+.config-card-roles,
+.full-width {
+  position: relative;
+  background: #fff;
+  border-radius: 14px;
+   padding: 22px 18px 12px !important;
+  overflow: hidden;
+  box-shadow:
+    0 2px 12px rgba(6, 63, 63, 0.07),
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(29, 217, 192, 0.12);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
+
+.config-card:hover,
+.config-card-roles:hover,
+.full-width:hover {
+  box-shadow:
+    0 6px 24px rgba(6, 63, 63, 0.11),
+    0 2px 6px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+/* Gradient top bar */
+.config-card::before,
+.config-card-roles::before,
+.full-width::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2.5px;
+  background: linear-gradient(135deg, #1e1b4b 0%, #769acc 50%, #0f0974 100%);
+  background-size: 200% 100%;
+}
+
+/* Ambient glow orb */
+.config-card::after,
+.config-card-roles::after,
+.full-width::after {
+  content: '';
+  position: absolute;
+  top: -20px; right: -20px;
+  width: 80px; height: 80px;
+  background: radial-gradient(circle, rgba(29, 217, 192, 0.07) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ===============================
+   CARD SIZING
+================================ */
+.config-card,
 .config-card-roles {
   width: 50%;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-/* Full width 3rd card */
-.full-width {
-  border-radius: 10px;
-  margin-top: 20px;
+  margin: 0;
 }
 
-/* List styling */
+.full-width {
+  width: 100%;
+}
+
+/* ===============================
+   CARD TITLE
+================================ */
+.config-card h3,
+.config-card-roles h3,
+.full-width h3,
+.config-section-title {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: var(--teal-dark);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin: 6px 0 12px !important;  /* top:6px, right:0, bottom:12px */
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.config-wrapper {
+  padding: 28px 18px 20px !important;
+}
+
+.config-row {
+  margin-top: 10px !important;
+}
+.config-card h3::before,
+.config-card-roles h3::before,
+.full-width h3::before,
+.config-section-title::before {
+  content: '';
+  width: 3px;
+  height: 12px;
+  background: linear-gradient(180deg, var(--teal-accent), var(--teal-dark));
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.config-card h3::after,
+.config-card-roles h3::after,
+.full-width h3::after,
+.config-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(29, 217, 192, 0.20), transparent);
+}
+
+/* ===============================
+   INPUT ROW
+================================ */
+.config-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* ===============================
+   INPUTS
+================================ */
+.config-card .ant-input,
+.config-card-roles .ant-input,
+.full-width .ant-input,
+.config-card .ant-select-selector,
+.config-card-roles .ant-select-selector,
+.full-width .ant-select-selector {
+  border-radius: 8px !important;
+  border: 1.5px solid #d0e8e8 !important;
+  background: #f4f9f9 !important;
+  font-size: 13px !important;
+  height: 34px !important;
+  color: #1a3a3a !important;
+  transition: border 0.2s, box-shadow 0.2s, background 0.2s !important;
+  box-shadow: inset 0 1px 2px rgba(6, 63, 63, 0.04) !important;
+}
+
+.config-card .ant-select-selector,
+.config-card-roles .ant-select-selector,
+.full-width .ant-select-selector {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.config-card .ant-input:focus,
+.config-card-roles .ant-input:focus,
+.full-width .ant-input:focus,
+.config-card .ant-select-focused .ant-select-selector,
+.config-card-roles .ant-select-focused .ant-select-selector,
+.full-width .ant-select-focused .ant-select-selector {
+  border-color: var(--teal-accent) !important;
+  box-shadow:
+    0 0 0 3px rgba(29, 217, 192, 0.10),
+    inset 0 1px 2px rgba(6, 63, 63, 0.04) !important;
+  background: #fff !important;
+}
+
+/* ===============================
+   SAVE BUTTON
+================================ */
+.config-card .ant-btn-primary,
+.config-card-roles .ant-btn-primary,
+.full-width .ant-btn-primary {
+background: linear-gradient(135deg, #1e1b4b 0%, #769acc 50%, #0f0974 100%);
+  border: none !important;
+  border-radius: 8px !important;
+  height: 34px !important;
+  padding: 0 16px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  box-shadow:
+    0 3px 10px rgba(6, 63, 63, 0.28),
+    inset 0 1px 0 rgba(255,255,255,0.10) !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.config-card .ant-btn-primary::after,
+.config-card-roles .ant-btn-primary::after,
+.full-width .ant-btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(29,217,192,0.12), transparent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.config-card .ant-btn-primary:hover::after,
+.config-card-roles .ant-btn-primary:hover::after,
+.full-width .ant-btn-primary:hover::after {
+  opacity: 1;
+}
+
+.config-card .ant-btn-primary:hover,
+.config-card-roles .ant-btn-primary:hover,
+.full-width .ant-btn-primary:hover {
+  transform: translateY(-1px) !important;
+  box-shadow:
+    0 6px 16px rgba(6, 63, 63, 0.32),
+    inset 0 1px 0 rgba(255,255,255,0.10) !important;
+}
+
+.config-card .ant-btn-primary:active,
+.config-card-roles .ant-btn-primary:active,
+.full-width .ant-btn-primary:active {
+  transform: translateY(0) !important;
+}
+
+/* ===============================
+   TABS
+================================ */
+.config-card .ant-tabs-nav,
+.config-card-roles .ant-tabs-nav,
+.full-width .ant-tabs-nav {
+  margin-bottom: 0 !important;
+}
+
+.config-card .ant-tabs-tab,
+.config-card-roles .ant-tabs-tab,
+.full-width .ant-tabs-tab {
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  color: #7a9f9f !important;
+  padding: 4px 12px !important;
+  transition: color 0.2s !important;
+}
+
+.config-card .ant-tabs-tab:hover .ant-tabs-tab-btn,
+.config-card-roles .ant-tabs-tab:hover .ant-tabs-tab-btn,
+.full-width .ant-tabs-tab:hover .ant-tabs-tab-btn {
+  color: var(--teal-mid) !important;
+}
+
+.config-card .ant-tabs-tab-active .ant-tabs-tab-btn,
+.config-card-roles .ant-tabs-tab-active .ant-tabs-tab-btn,
+.full-width .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--teal-dark) !important;
+  font-weight: 700 !important;
+}
+
+.config-card .ant-tabs-ink-bar,
+.config-card-roles .ant-tabs-ink-bar,
+.full-width .ant-tabs-ink-bar {
+  background: linear-gradient(90deg, var(--teal-dark), var(--teal-accent)) !important;
+  height: 2px !important;
+  border-radius: 2px !important;
+}
+
+.config-card .ant-tabs-content-holder,
+.config-card-roles .ant-tabs-content-holder,
+.full-width .ant-tabs-content-holder {
+  min-height: 40px !important;
+}
+
+/* ===============================
+   LIST CONTENT
+================================ */
 .list-content {
-  margin-top: 20px;
+  margin-top: 6px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-
+  gap: 5px;
 }
+
+/* ===============================
+   LIST ROW
+================================ */
 .list-row {
-  padding: 10px 14px;
-  background: #fff;
-  border-radius: 6px;
+  padding: 7px 12px;
+  background: linear-gradient(135deg, #f6fafa 0%, #f0f8f8 100%);
+  border-radius: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 500;
+  font-size: 13px;
+  color: #1a3a3a;
+  border: 1px solid rgba(29, 217, 192, 0.10);
+  box-shadow: 0 1px 3px rgba(6, 63, 63, 0.04);
+  transition: all 0.18s ease;
 }
+
+.list-row:hover {
+  background: linear-gradient(135deg, #e8f5f5 0%, #dff2f2 100%);
+  border-color: rgba(29, 217, 192, 0.28);
+  box-shadow: 0 3px 10px rgba(6, 63, 63, 0.08);
+  transform: translateX(3px);
+}
+
+/* Teal pill indicator */
+.list-row::before {
+  content: '';
+  width: 4px;
+  height: 14px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--teal-accent), var(--teal-dark));
+  flex-shrink: 0;
+  margin-right: 10px;
+  opacity: 0.7;
+}
+
+.list-row:hover::before {
+  opacity: 1;
+}
+
+/* ===============================
+   DELETE BUTTON
+================================ */
 .delete-btn {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
+.delete-btn .ant-btn,
+.delete-btn button {
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 6px !important;
+  border: 1px solid rgba(217, 79, 79, 0.15) !important;
+  background: rgba(217, 79, 79, 0.05) !important;
+  color: #c94444 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  font-size: 11px !important;
+  transition: all 0.18s ease !important;
+  box-shadow: none !important;
+}
 
+.delete-btn .ant-btn:hover,
+.delete-btn button:hover {
+  background: #d94f4f !important;
+  color: #fff !important;
+  border-color: #d94f4f !important;
+  box-shadow: 0 3px 8px rgba(217, 79, 79, 0.30) !important;
+  transform: scale(1.12) !important;
+}
+
+/* ===============================
+   EMPTY STATE
+================================ */
+.config-empty-state {
+  text-align: center;
+  padding: 10px 0 6px;
+  color: #9ab8b8;
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+}
+
+.config-empty-state .anticon {
+  font-size: 18px;
+  color: #c8e0e0;
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* ===============================
+   TABLET (≤ 1024px)
+================================ */
 @media (max-width: 1024px) {
   .config-wrapper {
-    margin-left: 200px !important; /* smooth with semi collapsed sidebar */
-    transition: all 0.3s ease;
+    margin-left: 200px;
+    padding: 16px 12px;
   }
 
   .config-row {
     flex-wrap: wrap;
+    gap: 12px;
   }
 
-  .config-card {
-    width: 48%;
+  .config-card,
+  .config-card-roles {
+    width: calc(50% - 6px);
   }
 }
 
-/* 📱 Mobile View FIX */
+/* ===============================
+   MOBILE (≤ 768px)
+================================ */
 @media (max-width: 768px) {
   .config-wrapper {
-    margin-left: 0 !important; /* full width clean mobile */
-    padding: 15px;
+    margin-left: 0;
+    padding: 10px;
   }
 
   .config-row {
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
   }
 
   .config-card,
+  .config-card-roles,
   .full-width {
     width: 100%;
-    margin-top: 45px;
   }
 
   .list-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 6px;
   }
 
   .delete-btn {
     align-self: flex-end;
   }
-.config-card-roles {
-  width: 100%;
-  margin-top: 45px;
 }
-}
-/* Remove ALL space between tabs and list */
-.config-card .ant-tabs {
-  margin-bottom: 0 !important;
-}
-
-.config-card .list-content {
-  margin-top: -25px !important;
-}
-/* 🔧 Remove space after tabs in Roles card */
-.config-card-roles .ant-tabs {
-  margin-bottom: 0 !important;
+/* ===============================
+   ANT DESIGN CARD HEAD FIX
+================================ */
+.config-card .ant-card-head,
+.config-card-roles .ant-card-head,
+.full-width .ant-card-head {
+  padding: 10px 18px !important;
+  min-height: unset !important;
+  border-bottom: 1px solid rgba(29, 217, 192, 0.10) !important;
+  background: transparent !important;
 }
 
-.config-card-roles .list-content {
-  margin-top: -35px !important;
+.config-card .ant-card-head-title,
+.config-card-roles .ant-card-head-title,
+.full-width .ant-card-head-title {
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: var(--teal-dark) !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  padding: 0 !important;
+}
+
+.config-card .ant-card-body,
+.config-card-roles .ant-card-body,
+.full-width .ant-card-body {
+  padding: 14px 18px 12px !important;
+}
+
+/* Remove h3 styles since title is now in ant-card-head */
+.config-card h3,
+.config-card-roles h3,
+.full-width h3 {
+  display: none !important;
 }

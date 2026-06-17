@@ -289,21 +289,12 @@ const fetchPendingReviews = async () => {
         </Card>
 
         </div>
-        <div
-  style={{
-    display: "flex",
-    justifyContent: "right",
-    marginRight: 840,
-  }}
->
+       <div className="performance-search-row">
   <Input
-    placeholder="Search by employee name"
-    // allowClear
-    style={{ width: 200 }}
-    border-color="#c4bac1"
+    placeholder="🔍  Search by employee name"
     value={searchText}
     onChange={(e) => setSearchText(e.target.value)}
-    border-radius="20px"
+    className="performance-search"
   />
 </div>
 

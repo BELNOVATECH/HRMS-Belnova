@@ -2,12 +2,13 @@
 .hrms-dashboard-navbar {
   height: 60px;
   width: 100%;
-  background: #ffffff;
+ background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 50%, #4f46e5 100%);
+box-shadow: 0 3px 16px rgba(30, 27, 75, 0.5);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); */
   position: sticky;
   top: 0;
   z-index: 999;
@@ -26,12 +27,11 @@
 
 /* Logo styling */
 .navbar-logo {
-  height: 35px;
+  height: 48px;
   width: auto;
   object-fit: contain;
   cursor: pointer;
 }
-
 /* Right section */
 .hrms-dashboard-navbar-right {
   display: flex;
@@ -59,7 +59,8 @@
 /* ================= Dropdowns ================= */
 .notifications-dropdown,
 .user-dropdown {
-  background: #ffffff; /* White background */
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(30, 27, 75, 0.15); /* White background */
   border: 1px solid #e0e0e0;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   border-radius: 6px;
@@ -136,5 +137,44 @@
 @media (max-width: 1024px) {
   .navbar-menu-icon {
     display: block;
+  }
+}
+/* ================= BRAND TEXT ================== */
+.navbar-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-left: 12px;
+  border-left: 2px solid rgba(29, 210, 180, 0.45);
+  margin-left: 6px;
+}
+
+.navbar-brand-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+  white-space: nowrap;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.25);
+}
+
+.navbar-brand-sub {
+  font-size: 10px;
+  font-weight: 600;
+  color: #1dd9c0;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Fix menu icon color for dark bg */
+.navbar-menu-icon {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Hide brand text on mobile */
+@media (max-width: 480px) {
+  .navbar-brand-text {
+    display: none;
   }
 }

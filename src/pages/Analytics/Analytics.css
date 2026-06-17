@@ -48,10 +48,10 @@
 /* Base style for KPI / summary cards */
 .analytics-kpi-card,
 .reports-card {
-  padding: 18px 15px;
+  padding: 3px 4px;
   text-align: center;
   border-radius: 12px;
-  background: linear-gradient(135deg, #0ea5a4, #03203b);
+  background: linear-gradient(90deg, #14478e, #085b5b);
   box-shadow: 0 3px 10px rgba(0,0,0,0.2);
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
