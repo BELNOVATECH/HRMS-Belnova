@@ -9,7 +9,9 @@ const API_URL = "https://belnova-hrms-be-7.onrender.com";
 
 export const getDesignations = () =>
   axios.get(`${API_URL}/designations/`);
-
+export const getAttendance = () => {
+  return api.get("/attendance/");
+};
 export const createDesignation = (data: {
   designation_name: string;
   dept_id: number;
@@ -192,9 +194,11 @@ export const uploadResume = (file: File) => {
 // ================= INTERVIEW SCHEDULE =================
 export const createInterviewSchedule = (data: any) =>
   axios.post(`${API_URL}/interview-schedule/schedule`, data);
+export const getEmployeeStatuses = () =>
+  axios.get(`${API_URL}/employees/master-status`);
 
 export const getInterviewSchedules = () =>
-  axios.get(`${API_URL}/interview-schedule`);
+  axios.get(`${API_URL}/interview-schedule/`);
 
 export const updateInterviewSchedule = (id: number, data: any) =>
   axios.put(`${API_URL}/interview-schedule/${id}`, data);

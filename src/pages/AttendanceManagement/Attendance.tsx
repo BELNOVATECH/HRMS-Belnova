@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Table, Button, Input, Modal, Select, Space } from "antd";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./Attendance.css";
+import {
+  getAttendance
+} from "../../services/CandidateService";
 
 const { Option } = Select;
 interface EmployeeType {
@@ -22,12 +25,7 @@ interface EmployeeType {
 const AttendanceManagement: React.FC = () => {
   const today = new Date().toISOString().slice(0, 10);
 
-  const [employees, setEmployees] = useState<EmployeeType[]>([
-    { id: 1, name: "Mahesh", department: "IT", date: today },
-    { id: 2, name: "Nandhini", department: "HR", date: today },
-    { id: 3, name: "Kiran", department: "Developer", date: today },
-    { id: 4, name: "Krishna", department: "Sales", date: today },
-  ]);
+const [employees, setEmployees] = useState<EmployeeType[]>([]);
 
   const [filteredEmployees, setFilteredEmployees] = useState<EmployeeType[]>(employees);
 
@@ -45,6 +43,39 @@ const AttendanceManagement: React.FC = () => {
 
   const [liveTime, setLiveTime] = useState("00:00:00");
   const [liveLocation, setLiveLocation] = useState("Fetching location...");
+  useEffect(() => {
+  loadAttendance();
+  
+}, []);
+useEffect(() => {
+  console.log("Employees State:", employees);
+}, [employees]);
+const loadAttendance = async () => {
+  try {
+    const res = await getAttendance();
+
+    console.log("Attendance API:", res.data);
+
+    setEmployees(
+      res.data.map((item: any) => ({
+        id: item.emp_id,
+
+        name: `Employee ${item.emp_id}`,
+        department: "-",
+
+        date: item.attendance_date,
+
+        loginTime: item.check_in_time,
+        loginLocation: "-",
+
+        logoutTime: item.check_out_time,
+        logoutLocation: "-",
+      }))
+    );
+  } catch (error) {
+    console.error("Attendance load failed", error);
+  }
+};
 
 
   // LIVE CLOCK
@@ -100,10 +131,10 @@ const AttendanceManagement: React.FC = () => {
   }, [employees]);
 
   // AUTO FILTER TABLE WHEN DATE CHANGES
-  useEffect(() => {
-    const filtered = employees.filter((e) => e.date >= fromDate && e.date <= toDate);
-    setFilteredEmployees(filtered);
-  }, [fromDate, toDate, employees]);
+  // useEffect(() => {
+  //   const filtered = employees.filter((e) => e.date >= fromDate && e.date <= toDate);
+  //   setFilteredEmployees(filtered);
+  // }, [fromDate, toDate, employees]);
 
   // OPEN MODAL
   const openAddAttendanceModal = () => {
@@ -240,7 +271,12 @@ const handleModalLogout = () => {
           </div>
         </div>
 
-        <Table columns={columns} dataSource={filteredEmployees} rowKey="id" pagination={false} />
+      <Table
+  columns={columns}
+  dataSource={employees}
+  rowKey="id"
+  pagination={false}
+/>
       </div>
 
       {/* MODAL */}

@@ -115,26 +115,38 @@ useEffect(() => {
 
       setDepartments(deptRes.data);
       setEmployees(empRes.data.filter((emp: any) => emp.is_active));
+      const activeEmployees = empRes.data.filter(
+  (emp: any) => emp.is_active
+);
+
+setEmployees(activeEmployees);
 
       const payrollArray = payrollRes.data.payroll ?? [];
 
-      const mappedData = payrollArray.map((item: any, index: number) => ({
-        key: index + 1,
-        emp_id: item.employee.id,
-employee: `${item.employee.first_name} ${item.employee.last_name}`,
-        designation: item.employee.designation_name ?? "-",
-        period: `${payrollRes.data.month_id}/${payrollRes.data.year}`,
-        basic: item.earnings.basic,
-        hra: item.earnings.hra,
-        gross: item.earnings.gross_after_lop,
-        deductions: item.deductions.total_deductions,
-        net: item.net_salary,
-        attendance: {
-          paid_days: item.attendance.paid_days,
-          lop_days: item.attendance.lop_days,
-        },
-        raw: item,
-      }));
+const mappedData = payrollArray.map((item: any, index: number) => ({
+  key: index + 1,
+
+  emp_id: index + 1,
+  employee: `Employee ${index + 1}`,
+  designation: "-",
+
+  period: `${payrollRes.data.month}/${payrollRes.data.year}`,
+
+  basic: item.earnings.basic,
+  hra: item.earnings.hra,
+  gross: item.earnings.gross_after_lop,
+
+  deductions: item.deductions.total_deductions,
+
+  net: item.net_salary,
+
+  attendance: {
+    paid_days: item.attendance.paid_days,
+    lop_days: item.attendance.lop_days,
+  },
+
+  raw: item,
+}));
 
       setData(mappedData);
     } catch (err) {
