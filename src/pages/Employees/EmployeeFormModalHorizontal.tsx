@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+
 import {
   Modal,
   Form,
@@ -21,8 +22,12 @@ import {
 import { PlusOutlined, UploadOutlined, DeleteOutlined } from "@ant-design/icons";
 import dayjs from "dayjs";
 import "./EmployeeFormModalHorizontal.css";
-import { getDepartments, getDesignations } from "../../services/CandidateService";
-import { getEmployeeStatuses } from "../../services/StatusService";
+
+import {
+  getDepartments,
+  getDesignations,
+  getEmployeeStatuses,
+} from "../../services/CandidateService";
 
 
 const { Option } = Select;
@@ -158,7 +163,21 @@ const checkDuplicate = (field: string, value: string) => {
 
   return Promise.resolve();
 };
+useEffect(() => {
+  const loadStatuses = async () => {
+    try {
+      const res = await getEmployeeStatuses();
 
+      setStatuses(
+        res.data.filter((s: any) => s.is_active)
+      );
+    } catch (error) {
+      message.error("Failed to load statuses");
+    }
+  };
+
+  loadStatuses();
+}, []);
 
 useEffect(() => {
   if (isOpen) {
@@ -276,8 +295,7 @@ useEffect(() => {
 }, [employee, form, isOpen]);
 
   useEffect(() => {
-  axios
-    .get("https://belnova-hrms-be-7.onrender.com//employees")
+axios.get("https://belnova-hrms-be-7.onrender.com/employees")
     
     .then((res) => {
       setManagers(res.data);
@@ -305,22 +323,22 @@ useEffect(() => {
 
   loadConfigData();
 }, []);
-useEffect(() => {
-  const loadStatuses = async () => {
-    try {
-      const res = await getEmployeeStatuses();
+// useEffect(() => {
+//   const loadStatuses = async () => {
+//     try {
+//       const res = await getEmployeeStatuses();
+// console.log("STATUS RESPONSE =", res.data);
+//       // only active statuses
+//       setStatuses(
+//         res.data
+//       );
+//     } catch {
+//       message.error("Failed to load statuses");
+//     }
+//   };
 
-      // only active statuses
-      setStatuses(
-        res.data
-      );
-    } catch {
-      message.error("Failed to load statuses");
-    }
-  };
-
-  loadStatuses();
-}, []);
+//   loadStatuses();
+// }, []);
 
 
 const handleFinish = async (values: any) => {
@@ -916,15 +934,13 @@ try {
     rules={[{ required: true, message: "Status is required" }]}
   >
     <Select placeholder="Select Status">
- {statuses
+{statuses
   .sort((a, b) => a.id - b.id)
   .map((s) => (
-
-    <Option value={s.id}>
-
-      {s.status_name}
+    <Option key={s.id} value={s.id}>
+      {s.name}
     </Option>
-  ))}
+))}
 </Select>
 
   </Form.Item>
